@@ -46,7 +46,6 @@ background: $navy;
         font-family: $f-roboto;
         color: #fff;
       }
-
     }
   }
 }

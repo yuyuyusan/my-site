@@ -93,6 +93,7 @@ export default {
 .topMv {
   background: rgba($navy , .2);
   padding: 100px 0 0;
+
   @include tab {
     padding: 80px 0;
   }
@@ -134,7 +135,7 @@ export default {
 
           @include tab {
             margin: 0 auto;
-            width: min(100% , 480px);
+            width: min(100%, 480px);
             display: block;
           }
         }
@@ -152,6 +153,7 @@ export default {
               margin-bottom: 30px;
             }
           }
+
           &:last-child {
             @include tab {
               margin-bottom: 0;
@@ -173,6 +175,10 @@ export default {
           &-02 {
             background: $skyBlue;
 
+            &:hover {
+              pointer-events: none;
+            }
+
             h2 {
               color: $lightBlue;
             }
@@ -184,6 +190,10 @@ export default {
 
           &-03 {
             background: $blue;
+
+            &:hover {
+              pointer-events: none;
+            }
 
             h2 {
               color: $skyBlue;
@@ -231,6 +241,7 @@ export default {
   background: $navy;
   padding: 120px 0 0;
   margin-top: -60px;
+
   @include tab {
     margin-top: 0;
     padding: 60px 0 0;

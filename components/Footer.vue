@@ -10,9 +10,9 @@
             </nuxt-link>
           </li>
           <li>
-            <nuxt-link class="nav-link" to="/contact">
+            <!-- <nuxt-link class="nav-link" to="/contact">
               <span class="en">CONTACT</span>
-            </nuxt-link>
+            </nuxt-link> -->
           </li>
         </ul>
       </nav>
