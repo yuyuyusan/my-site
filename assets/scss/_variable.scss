@@ -1,0 +1,86 @@
+
+
+// content width
+$pc-l: 1680px;
+$pc-m: 1480px;
+$pc-s: 1200px;
+$tab: 960px;
+$sp: 560px;
+
+// color
+$navy: #000726;
+$blue: #001E7D;
+$skyBlue: #5A87FF;
+$lightBlue: #DCE6FF;
+
+// font-family
+$f-sans: 'Noto Sans JP', sans-serif;
+$f-serif: 'Noto Serif JP', serif;
+$f-roboto: 'Roboto', sans-serif;
+$f-robotoCondensed: 'RobotoCondensed', sans-serif;
+
+// breakpoint media query
+@mixin pc-m {
+  @media screen and (max-width: ($pc-m)) {
+    @content;
+  }
+}
+
+@mixin pc-s {
+  @media screen and (max-width: ($pc-s)) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media screen and (max-width: ($tab)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media screen and (max-width: ($sp)) {
+    @content;
+  }
+}
+
+
+@mixin contentWidth-l {
+  width: min(100% - 80px , $pc-l);
+  margin: 0 auto;
+  @include sp {
+    width: min(100% - 40px , $pc-l);
+  }
+}
+@mixin contentWidth-m {
+  width: min(100% - 80px , $pc-m);
+  margin: 0 auto;
+  @include sp {
+    width: min(100% - 40px , $pc-m);
+  }
+}
+@mixin contentWidth-s {
+  width: min(100% - 80px , $pc-s);
+  margin: 0 auto;
+  @include sp {
+    width: min(100% - 40px , $pc-s);
+  }
+}
+@mixin mb100 {
+  margin-bottom: 100px;
+  @include pc-s {
+    margin-bottom: 80px;
+    @include tab {
+      margin-bottom: 60px;
+    }
+  }
+}
+@mixin p100 {
+  padding: 100px 0;
+  @include pc-s {
+    padding: 80px 0;
+    @include tab {
+      padding: 60px 0;
+    }
+  }
+}
