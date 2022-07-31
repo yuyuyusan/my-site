@@ -30,7 +30,7 @@
     </section>
 
 
-    <section class="aboutWorks">
+    <section id="aboutWorks" class="aboutWorks">
       <div class="container">
         <h2>
           <span class="en">WORKS</span>
@@ -88,7 +88,7 @@
                 <figure class="listItem__pic">
                   <img :src="content.image.url">
                 </figure>
-                <progress class="listItem__bar" min="0" max="100" :value="content.level"></progress>
+                <progress class="listItem__bar" min="0" max="10" :value="content.level"></progress>
               </li>
             </ul>
           </div>

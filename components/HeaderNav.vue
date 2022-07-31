@@ -5,9 +5,9 @@
         <li>
           <router-link class="nav-link" to="/about">ABOUT</router-link>
         </li>
-        <!-- <li>
-          <router-link class="nav-link" to="/contact">CONTACT</router-link>
-        </li> -->
+        <li>
+          <router-link class="nav-link" to="/info">INFORMATION</router-link>
+        </li>
       </ul>
     </nav>
     <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

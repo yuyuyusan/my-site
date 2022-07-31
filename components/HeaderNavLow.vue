@@ -5,9 +5,9 @@
         <li>
           <nuxt-link class="nav-link" to="/about">ABOUT</nuxt-link>
         </li>
-        <!-- <li>
-          <nuxt-link class="nav-link" to="/contact">CONTACT</nuxt-link>
-        </li> -->
+        <li>
+          <nuxt-link class="nav-link" to="/info">INFORMATION</nuxt-link>
+        </li>
       </ul>
     </nav>
     <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

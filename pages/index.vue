@@ -18,7 +18,7 @@
               </nuxt-link>
             </li>
             <li class="listItem listItem-02">
-              <nuxt-link class="listItem__link" to="/works">
+              <nuxt-link class="listItem__link" to="/about#aboutWorks">
                 <h2>
                   <span class="en">WORKS</span>
                   <span class="jp">実績一覧</span>
@@ -142,11 +142,9 @@ export default {
 
         &Item {
           width: calc((100% - (50px * 2)) / 3);
-          padding: 40px 30px;
 
           @include pc-s {
             width: calc((100% - (20px * 2)) / 3);
-            padding: 40px 20px;
 
             @include tab {
               width: calc(100%);
@@ -175,10 +173,6 @@ export default {
           &-02 {
             background: $skyBlue;
 
-            &:hover {
-              pointer-events: none;
-            }
-
             h2 {
               color: $lightBlue;
             }
@@ -190,10 +184,6 @@ export default {
 
           &-03 {
             background: $blue;
-
-            &:hover {
-              pointer-events: none;
-            }
 
             h2 {
               color: $skyBlue;
@@ -208,6 +198,11 @@ export default {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding: 40px 30px;
+
+            @include pc-s {
+              padding: 40px 20px;
+            }
 
             h2 {
               line-height: 1;
