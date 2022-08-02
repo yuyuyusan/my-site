@@ -1,6 +1,7 @@
 
 <template>
-  <div class="wrapper">
+  <main class="infoMain">
+
     <section class="lowMv">
       <h1>
         <span class="en">INFORMATION</span>
@@ -8,15 +9,19 @@
     </section>
 
     <section class="infoList">
-      <ul class="list">
-        <li class="listItem" v-for="content in contents" :key="content.id">
-          <p class="date" :datetime="content.publishedAt"
-            v-text="$dateFns.format(new Date(content.publishedAt), 'yyyy.MM.dd')"></p>
-          <h3>{{ content.title }}</h3>
-        </li>
-      </ul>
+      <div class="container">
+        <ul class="list">
+          <li class="listItem" v-for="content in contents" :key="content.id">
+            <nuxt-link :to="`/${content.id}`">
+              <p class="date" :datetime="content.publishedAt"
+                v-text="$dateFns.format(new Date(content.publishedAt), 'yyyy.MM.dd')"></p>
+              <h3>{{ content.title }}</h3>
+            </nuxt-link>
+          </li>
+        </ul>
+      </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -47,6 +52,26 @@ export default {
     @include contentWidth-s;
     font-size: 3.6rem;
     text-align: center;
+  }
+}
+
+
+.infoList {
+  @include mb100;
+
+  .container {
+    @include contentWidth-s;
+
+    .list {
+      width: min(100%, 800px);
+      margin: 0 auto;
+
+      &Item {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 2px dotted $blue;
+      }
+    }
   }
 }
 </style>

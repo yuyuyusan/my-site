@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <main class="topMain">
     <section id="topMv" class="topMv">
       <div class="container">
         <h1>SHISTUKAWA YUSHI</h1>
@@ -69,7 +69,7 @@
       </div>
     </section>
 
-  </div>
+  </main>
 </template>
 
 <script>

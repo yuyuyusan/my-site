@@ -1,12 +1,12 @@
 <template>
-  <div class="wrapper">
+  <main class="aboutMain">
     <section class="lowMv">
       <h1>
         <span class="en">ABOUT</span>
       </h1>
     </section>
 
-    <section class="aboutMain">
+    <section class="aboutBase">
       <h2>漆川佑志</h2>
 
       <div class="container">
@@ -38,19 +38,26 @@
         </h2>
 
         <ul class="list">
+          <!-- <li class="listItem" v-for="content in contents" :key="content.id">
+            <figure class="listItem__pic">
+              <img :src="content.image.url">
+            </figure>
+            <h3>{{ content.title }}</h3>
+          </li> -->
+
           <li class="listItem">
             <figure class="listItem__pic">
               <a href=""><img src="../static/img-01.jpg" alt=""></a>
             </figure>
-            <h3>タイトル</h3>
-            <p class="listItem__text">テキストが入りますテキストが入りますテキストが入ります</p>
+            <h3>個別apiの取得がまだわからない</h3>
+            <p class="listItem__text">困った絶対できるはず</p>
           </li>
           <li class="listItem">
             <figure class="listItem__pic">
               <a href=""><img src="../static/img-01.jpg" alt=""></a>
             </figure>
-            <h3>タイトル</h3>
-            <p class="listItem__text">テキストが入りますテキストが入りますテキストが入ります</p>
+            <h3>実績のapiを取得・・</h3>
+            <p class="listItem__text">困った絶対できるはず</p>
           </li>
         </ul>
         <div class="link">
@@ -108,7 +115,7 @@
 
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -131,6 +138,17 @@ export default {
     )
     return data
   },
+  // async asyncData() {
+  //   const { data2 } = await axios.get(
+  //     'https://yushi.microcms.io/api/v1/results',
+  //     {
+  //       headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' }
+  //     }
+  //   )
+  //   return data2
+  // },
+
+  
 }
 
 
@@ -151,7 +169,7 @@ export default {
 }
 
 
-.aboutMain {
+.aboutBase {
   margin-bottom: 100px;
 
   h2 {
@@ -201,8 +219,10 @@ export default {
           margin-bottom: 15px;
           font-size: 1.8rem;
         }
+
         p {
           line-height: 1.6;
+
           @include tab {
             font-size: 1.4rem;
           }
@@ -342,6 +362,7 @@ export default {
           cursor: pointer;
         }
       }
+
       .clickActive {
         background: $blue;
         color: #fff;
