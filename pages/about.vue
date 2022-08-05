@@ -138,17 +138,6 @@ export default {
     )
     return data
   },
-  // async asyncData() {
-  //   const { data2 } = await axios.get(
-  //     'https://yushi.microcms.io/api/v1/results',
-  //     {
-  //       headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' }
-  //     }
-  //   )
-  //   return data2
-  // },
-
-  
 }
 
 
