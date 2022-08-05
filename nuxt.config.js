@@ -41,21 +41,23 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["nuxt-microcms-module"],
-  microcms: {
-    options: {
-      serviceDomain: "yushi",
-      apiKey: "feb17f48f7204c99b8dd40af725e95d2311b",
-    },
-    mode: process.env.NODE_ENV === "production" ? "server" : "all",
-  },
+  buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
+    'nuxt-microcms-module',
   ],
+  microcms: {
+    options: {
+      serviceDomain: process.env.SERVICE_DOMAIN,
+      apiKey: process.env.GET_API_KEY,
+    },
+    mode: process.env.NODE_ENV === 'production' ? 'server' : 'all',
+  },
+  
   styleResources: {
     scss: ['~/assets/scss/_variable.scss'],
   },

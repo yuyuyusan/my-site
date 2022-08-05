@@ -38,26 +38,11 @@
         </h2>
 
         <ul class="list">
-          <!-- <li class="listItem" v-for="content in contents" :key="content.id">
+          <li v-for="results in results.contents" :key="results.id" class="listItem">
             <figure class="listItem__pic">
-              <img :src="content.image.url">
+              <img :src="results.image.url" />
             </figure>
-            <h3>{{ content.title }}</h3>
-          </li> -->
-
-          <li class="listItem">
-            <figure class="listItem__pic">
-              <a href=""><img src="../static/img-01.jpg" alt=""></a>
-            </figure>
-            <h3>個別apiの取得がまだわからない</h3>
-            <p class="listItem__text">困った絶対できるはず</p>
-          </li>
-          <li class="listItem">
-            <figure class="listItem__pic">
-              <a href=""><img src="../static/img-01.jpg" alt=""></a>
-            </figure>
-            <h3>実績のapiを取得・・</h3>
-            <p class="listItem__text">困った絶対できるはず</p>
+            <h3>{{ results.title }}</h3>
           </li>
         </ul>
         <div class="link">
@@ -91,11 +76,11 @@
               </p>
             </div>
             <ul class="list">
-              <li class="listItem" v-for="content in contents" :key="content.id">
+              <li v-for="cord in cord.contents" :key="cord.id" class="listItem">
                 <figure class="listItem__pic">
-                  <img :src="content.image.url">
+                  <img :src="cord.image.url" />
                 </figure>
-                <progress class="listItem__bar" min="0" max="10" :value="content.level"></progress>
+                <progress class="listItem__bar" min="0" max="10" :value="cord.level"></progress>
               </li>
             </ul>
           </div>
@@ -129,14 +114,17 @@ export default {
       tab: 1,
     }
   },
-  async asyncData() {
-    const { data } = await axios.get(
-      'https://yushi.microcms.io/api/v1/cord',
-      {
-        headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' }
-      }
-    )
-    return data
+  async asyncData({ $microcms }) {
+    const cord = await $microcms.get({
+      endpoint: 'cord',
+    })
+    const results = await $microcms.get({
+      endpoint: 'results',
+    })
+    return {
+      cord,
+      results,
+    }
   },
 }
 
