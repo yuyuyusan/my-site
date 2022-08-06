@@ -12,18 +12,9 @@
       <div class="container">
         <figure class="pic"><img src="../static/yu.jpg"></figure>
         <div class="inner">
-          <div class="innerContent innerTop">
-            <h3>略歴</h3>
-            <p>
-              2020年4月より勉強開始。2021年4月より業務未経験でWeb制作会社入社。
-            </p>
-          </div>
-          <div class="innerContent innerBottom">
-            <h3>趣味</h3>
-            <p>
-              昔はサッカーやっていて、現在は、スノーボードとアニメ漫画好きで、ギャップがすごいとよく言われます。
-              業務終了後、土日祝ずっと勉強しているので、そろそろ趣味にコーディング勉強入れてもいいですか。
-            </p>
+          <div v-for="(intro, index) in self" :key="index" class="innerContent" :class="intro.boxClass">
+              <h3>{{ intro.title }}</h3>
+              <p>{{ intro.desc }}</p>
           </div>
         </div>
       </div>
@@ -71,8 +62,8 @@
                 現在、経験年数1年4ヶ月です。HTMLはSEOを気にしつつ、SCSSでユーザビリティ意識しながらのコーディングができます。<br>
                 JavaScript、PHPは基本的な構文は抑えています。フルスクラッチで書いて開発したことはまだありません。書いてあるのを、実装しようとしているものを、調べながら読み解く流れです。<br>
                 新しくでてきたものは、基本的には調べて多少時間はかかったとしても完成はできます。<br>
-                ※最悪妥協してアナログみたいなやり方にします。<br>
-                CMSに関しては大規模サイトは経験ないですが、0からオリジナルテーマは作成できます。現在は、Vue、Nuxt、ヘッドレスCMS（microCMS少々）勉強中です。
+                ※最悪妥協して非効率なやり方でも完成させます。<br>
+                CMSに関しては大規模サイトは経験ないですが、WordPressを0からオリジナルテーマは作成できます。現在は、Vue、Nuxt、ヘッドレスCMS（microCMS）勉強中です。
               </p>
             </div>
             <ul class="list">
@@ -104,15 +95,25 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: 'AboutPage',
   layout: 'low',
   data: () => {
     return {
       tab: 1,
-    }
+      self: [
+        {
+          boxClass: "innerTop",
+          title: "略歴",
+          desc: "2020年4月より勉強開始。2021年4月より業務未経験でWeb制作会社入社。"
+        },
+        {
+          boxClass: "innerBottom",
+          title: "略歴",
+          desc: "昔はサッカーやっていて、現在は、スノーボードとアニメ漫画好きで、ギャップがすごいとよく言われます。業務終了後、土日祝ずっと勉強しているので、そろそろ趣味にコーディング勉強入れてもいいですか。"
+        }
+      ]
+    };
   },
   async asyncData({ $microcms }) {
     const cord = await $microcms.get({

@@ -5,35 +5,11 @@
         <h1>SHISTUKAWA YUSHI</h1>
         <div class="wrap">
           <ul class="list">
-            <li class="listItem listItem-01">
-              <nuxt-link class="listItem__link" to="/about">
+            <li v-for="(item, index) in object" :key="index" class="listItem" :class="item.numClass">
+              <nuxt-link class="listItem__link" :to="item.link">
                 <h2>
-                  <span class="en">ABOUT</span>
-                  <span class="jp">〜について</span>
-                </h2>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                  <path
-                    d="M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM358.6 278.6l-112 112c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25L290.8 256L201.4 166.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l112 112C364.9 239.6 368 247.8 368 256S364.9 272.4 358.6 278.6z" />
-                </svg>
-              </nuxt-link>
-            </li>
-            <li class="listItem listItem-02">
-              <nuxt-link class="listItem__link" to="/about#aboutWorks">
-                <h2>
-                  <span class="en">WORKS</span>
-                  <span class="jp">実績一覧</span>
-                </h2>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                  <path
-                    d="M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM358.6 278.6l-112 112c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25L290.8 256L201.4 166.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l112 112C364.9 239.6 368 247.8 368 256S364.9 272.4 358.6 278.6z" />
-                </svg>
-              </nuxt-link>
-            </li>
-            <li class="listItem listItem-03">
-              <nuxt-link class="listItem__link" to="/info">
-                <h2>
-                  <span class="en">INFO</span>
-                  <span class="jp">情報</span>
+                  <span class="en">{{ item.en }}</span>
+                  <span class="jp">{{ item.jp }}</span>
                 </h2>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                   <path
@@ -76,6 +52,30 @@
 import axios from 'axios'
 
 export default {
+  data() {
+    return {
+      object: [
+        {
+          en: "ABOUT",
+          jp: "〜について",
+          numClass: "listItem--01",
+          link: "/about"
+        },
+        {
+          en: "WORKS",
+          jp: "実績一覧",
+          numClass: "listItem--02",
+          link: "/about#aboutWorks"
+        },
+        {
+          en: "INFO",
+          jp: "お知らせ",
+          numClass: "listItem--03",
+          link: "/info"
+        }
+      ]
+    };
+  },
   layout: 'default',
   async asyncData() {
     const { data } = await axios.get(
@@ -158,7 +158,7 @@ export default {
             }
           }
 
-          &-01 {
+          &--01 {
             background: $lightBlue;
 
             h2 {
@@ -170,7 +170,7 @@ export default {
             }
           }
 
-          &-02 {
+          &--02 {
             background: $skyBlue;
 
             h2 {
@@ -182,7 +182,7 @@ export default {
             }
           }
 
-          &-03 {
+          &--03 {
             background: $blue;
 
             h2 {
