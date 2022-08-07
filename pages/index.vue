@@ -2,7 +2,7 @@
   <main class="topMain">
     <section id="topMv" class="topMv">
       <div class="container">
-        <h1>SHISTUKAWA YUSHI</h1>
+        <h1>SHITSUKAWA YUSHI</h1>
         <div class="wrap">
           <ul class="list">
             <li v-for="(item, index) in object" :key="index" class="listItem" :class="item.numClass">
@@ -34,11 +34,12 @@
           </nuxt-link>
         </h2>
         <ul class="list">
-          <li class="listItem" v-for="content in contents" :key="content.id">
-            <nuxt-link :to="`/${content.id}`">
-              <p class="date" :datetime="content.publishedAt"
-                v-text="$dateFns.format(new Date(content.publishedAt), 'yyyy.MM.dd')"></p>
-              <h3>{{ content.title }}</h3>
+          <li v-for="info in info.contents" :key="info.id" class="listItem">
+            <nuxt-link :to="`/${info.id}`">
+              <p class="date" :datetime="info.publishedAt"
+                v-text="$dateFns.format(new Date(info.publishedAt), 'yyyy.MM.dd')">
+              </p>
+              <h3>{{ info.title }}</h3>
             </nuxt-link>
           </li>
         </ul>
@@ -49,7 +50,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
   data() {
@@ -77,14 +77,13 @@ export default {
     };
   },
   layout: 'default',
-  async asyncData() {
-    const { data } = await axios.get(
-      'https://yushi.microcms.io/api/v1/info/',
-      {
-        headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' }
-      }
-    )
-    return data
+  async asyncData({ $microcms }) {
+    const info = await $microcms.get({
+      endpoint: 'info',
+    })
+    return {
+      info,
+    }
   }
 }
 </script>

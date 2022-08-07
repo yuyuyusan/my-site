@@ -13,8 +13,8 @@
         <figure class="pic"><img src="../static/yu.jpg"></figure>
         <div class="inner">
           <div v-for="(intro, index) in self" :key="index" class="innerContent" :class="intro.boxClass">
-              <h3>{{ intro.title }}</h3>
-              <p>{{ intro.desc }}</p>
+            <h3>{{ intro.title }}</h3>
+            <p>{{ intro.desc }}</p>
           </div>
         </div>
       </div>
