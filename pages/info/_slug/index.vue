@@ -1,24 +1,19 @@
 
 <template>
-  <main class="infoMain">
-
+  <main class="singleMain">
     <section class="lowMv">
       <h1>
         <span class="en">INFORMATION</span>
       </h1>
     </section>
 
-    <section class="infoList">
+    <section class="singleContent">
       <div class="container">
-        <ul class="list">
-          <li class="listItem" v-for="content in contents" :key="content.id">
-            <nuxt-link :to="`/${content.id}`">
-              <p class="date" :datetime="content.publishedAt"
-                v-text="$dateFns.format(new Date(content.publishedAt), 'yyyy.MM.dd')"></p>
-              <h3>{{ content.title }}</h3>
-            </nuxt-link>
-          </li>
-        </ul>
+        <div class="inner">
+          <h1 class="title">{{ title }}</h1>
+          <!-- <p class="publishedAt">{{ publishedAt }}</p> -->
+          <div class="post" v-html="content"></div>
+        </div>
       </div>
     </section>
   </main>
@@ -29,9 +24,9 @@ import axios from 'axios'
 
 export default {
   layout: 'low',
-  async asyncData() {
+  async asyncData({ params }) {
     const { data } = await axios.get(
-      'https://yushi.microcms.io/api/v1/info/',
+      `https://yushi.microcms.io/api/v1/info/${params.slug}`,
       {
         headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' }
       }
@@ -44,7 +39,7 @@ export default {
 
 <style lang="scss" scoped>
 .lowMv {
-  background: url(../static/low_mv.jpg)center center / cover;
+  background: url(../../../static/low_mv.jpg)center center / cover;
   @include mb100;
   @include p100;
 
@@ -54,22 +49,26 @@ export default {
     text-align: center;
   }
 }
-
-
-.infoList {
+.singleContent {
   @include mb100;
 
   .container {
     @include contentWidth-s;
 
-    .list {
+    .inner {
       width: min(100%, 800px);
       margin: 0 auto;
 
-      &Item {
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        border-bottom: 2px dotted $blue;
+      h1 {
+        font-size: 3.2rem;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      h2 {
+        font-size: 2.4rem;
+      }
+      p {
+        line-height: 1.7;
       }
     }
   }

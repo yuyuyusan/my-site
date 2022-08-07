@@ -35,7 +35,7 @@
         </h2>
         <ul class="list">
           <li v-for="info in info.contents" :key="info.id" class="listItem">
-            <nuxt-link :to="`/${info.id}`">
+            <nuxt-link :to="`/info/${info.id}`">
               <p class="date" :datetime="info.publishedAt"
                 v-text="$dateFns.format(new Date(info.publishedAt), 'yyyy.MM.dd')">
               </p>

@@ -1,19 +1,24 @@
 
 <template>
-  <main class="singleMain">
+  <main class="infoMain">
+
     <section class="lowMv">
       <h1>
         <span class="en">INFORMATION</span>
       </h1>
     </section>
 
-    <section class="singleContent">
+    <section class="infoList">
       <div class="container">
-        <div class="inner">
-          <h1 class="title">{{ title }}</h1>
-          <!-- <p class="publishedAt">{{ publishedAt }}</p> -->
-          <div class="post" v-html="content"></div>
-        </div>
+        <ul class="list">
+          <li class="listItem" v-for="content in contents" :key="content.id">
+            <nuxt-link :to="`/info/${content.id}`">
+              <p class="date" :datetime="content.publishedAt"
+                v-text="$dateFns.format(new Date(content.publishedAt), 'yyyy.MM.dd')"></p>
+              <h3>{{ content.title }}</h3>
+            </nuxt-link>
+          </li>
+        </ul>
       </div>
     </section>
   </main>
@@ -24,9 +29,9 @@ import axios from 'axios'
 
 export default {
   layout: 'low',
-  async asyncData({ params }) {
+  async asyncData() {
     const { data } = await axios.get(
-      `https://yushi.microcms.io/api/v1/info/${params.slug}`,
+      'https://yushi.microcms.io/api/v1/info/',
       {
         headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' }
       }
@@ -49,26 +54,22 @@ export default {
     text-align: center;
   }
 }
-.singleContent {
+
+
+.infoList {
   @include mb100;
 
   .container {
     @include contentWidth-s;
 
-    .inner {
+    .list {
       width: min(100%, 800px);
       margin: 0 auto;
 
-      h1 {
-        font-size: 3.2rem;
-        text-align: center;
-        margin-bottom: 40px;
-      }
-      h2 {
-        font-size: 2.4rem;
-      }
-      p {
-        line-height: 1.7;
+      &Item {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 2px dotted $blue;
       }
     }
   }
