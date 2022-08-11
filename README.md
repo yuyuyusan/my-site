@@ -1,8 +1,12 @@
 # portfolio
 今後
-・webglでtopmvできたらいい
+
+・webgl　three.jsでtopmvできたらいい
+
 ・無料プランだとapi複数作成できなかったので、contactはSendgrid使用してみる
+
 ・v-ifでno-image
+
 ・サーバーにアップロード
 
 
