@@ -7,14 +7,14 @@
     </section>
 
     <section class="aboutBase">
-      <h2>漆川佑志</h2>
+      <h2 id="observerTitleActive">漆川佑志</h2>
 
-      <div class="container">
+      <div class="container" id="observerTitle">
         <figure class="pic"><img src="../../static/yu.jpg"></figure>
         <div class="inner">
-          <div v-for="(intro, index) in self" :key="index" class="innerContent" :class="intro.boxClass">
-            <h3>{{ intro.title }}</h3>
-            <p>{{ intro.desc }}</p>
+          <div v-for="(self, index) in self" :key="index" class="innerContent" :class="self.boxClass">
+            <h3>{{ self.title }}</h3>
+            <p>{{ self.desc }}</p>
           </div>
         </div>
       </div>
@@ -31,8 +31,13 @@
         <ul class="list">
           <li v-for="results in results.contents" :key="results.id" class="listItem">
             <figure class="listItem__pic">
-              <img :src="results.image.url" />
+              <nuxt-link :to="`/works/${results.id}`">
+                <img :src=results.image.url alt="">
+              </nuxt-link>
             </figure>
+            <p class="date" :datetime="results.publishedAt"
+              v-text="$dateFns.format(new Date(results.publishedAt), 'yyyy.MM.dd')">
+            </p>
             <h3>{{ results.title }}</h3>
           </li>
         </ul>
@@ -67,11 +72,11 @@
               </p>
             </div>
             <ul class="list">
-              <li v-for="cord in cord.contents" :key="cord.id" class="listItem">
+              <li v-for="(skill, index) in skill" :key="index" class="listItem">
                 <figure class="listItem__pic">
-                  <img :src="cord.image.url" />
+                  <img :src="skill.icon" />
                 </figure>
-                <progress class="listItem__bar" min="0" max="10" :value="cord.level"></progress>
+                <progress class="listItem__bar" min="0" max="10" :value="skill.level"></progress>
               </li>
             </ul>
           </div>
@@ -83,7 +88,7 @@
                 デザインについては、UIは苦手ですがUXは意見できるくらいのレベルです。デザイン用語、デザインツール、UXの基本は抑えています。<br>
                 パッケージ管理はgulpは使ってなく、npm scriptsのみです。<br>
                 サーバー等の知識は基本は知っている状態です。<br>
-                今後は、データベースについて、React、WEBアプリも作りたいのでReact NativeもしくはFlutterを勉強しようと考えています。
+                今後は、Vue,Nuxtを勉強しつつ、データベースについて、React、アプリも作りたいのでReact NativeもしくはFlutterを勉強しようと考えています。
               </p>
             </div>
           </div>
@@ -100,7 +105,9 @@ export default {
   layout: 'low',
   data: () => {
     return {
+      // タブ切り替え
       tab: 1,
+      // 自己紹介
       self: [
         {
           boxClass: "innerTop",
@@ -112,24 +119,57 @@ export default {
           title: "略歴",
           desc: "昔はサッカーやっていて、現在は、スノーボードとアニメ漫画好きで、ギャップがすごいとよく言われます。業務終了後、土日祝ずっと勉強しているので、そろそろ趣味にコーディング勉強入れてもいいですか。"
         }
+      ],
+      // スキル
+      skill: [
+        {
+          icon: "icon-html.svg",
+          level: "8"
+        },
+        {
+          icon: "icon-css.svg",
+          level: "8"
+        },
+        {
+          icon: "icon-js.svg",
+          level: "5"
+        },
+        {
+          icon: "icon-php.svg",
+          level: "5"
+        },
+        {
+          icon: "icon-jquery.svg",
+          level: "5"
+        },
+        {
+          icon: "icon-ts.svg",
+          level: "1"
+        },
+        {
+          icon: "icon-wp.svg",
+          level: "7"
+        },
+        {
+          icon: "icon-vue.svg",
+          level: "2"
+        },
+        {
+          icon: "icon-nuxt.svg",
+          level: "2"
+        }
       ]
-    };
+    }
   },
   async asyncData({ $microcms }) {
-    const cord = await $microcms.get({
-      endpoint: 'cord',
-    })
     const results = await $microcms.get({
       endpoint: 'results',
     })
     return {
-      cord,
       results,
     }
-  },
+  }
 }
-
-
 
 </script>
 
@@ -154,6 +194,11 @@ export default {
     text-align: center;
     font-size: 2.4rem;
     margin-bottom: 40px;
+    background-image: linear-gradient(45deg,
+        rgb(37, 47, 255) 0%,
+        rgb(124, 192, 226) 100%,
+        rgb(37, 47, 255) 200%);
+    background-clip: text;
   }
 
   .container {
@@ -323,7 +368,15 @@ export default {
         font-size: 1.4rem;
       }
     }
-
+  progress {
+    -webkit-appearance: none;
+  }
+  ::-webkit-progress-bar {
+    background-color: #ccc;
+  }
+  ::-webkit-progress-value {
+    background-color: $skyBlue;
+  }
     .contentButton {
       width: min(100%, 600px);
       margin: 0 auto 60px;
