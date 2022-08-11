@@ -9,6 +9,7 @@
   </ul>
 </template>
 
+
 <script>
 export default {
   async asyncData() {
