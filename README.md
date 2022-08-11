@@ -1,4 +1,16 @@
 # portfolio
+今後
+
+・webgl　three.jsでtopmvできたらいい
+
+・無料プランだとapi複数作成できなかったので、contactはSendgrid使用してみる
+
+・v-ifでno-image
+
+・入門編っぽいのでtodo、電卓など作って載せる
+
+・サーバーにアップロード
+
 
 ## Build Setup
 
