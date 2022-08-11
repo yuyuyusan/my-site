@@ -1,4 +1,10 @@
 # portfolio
+今後
+・webglでtopmvできたらいい
+・無料プランだとapi複数作成できなかったので、contactはSendgrid使用してみる
+・v-ifでno-image
+・サーバーにアップロード
+
 
 ## Build Setup
 
