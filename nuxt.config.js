@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'portfolio',
+    title: 'y-web',
     htmlAttrs: {
       lang: 'en'
     },
@@ -25,7 +25,7 @@ export default {
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
-      href: '/favicon.ico'
+      href: '/yu.jpg'
     }]
   },
 

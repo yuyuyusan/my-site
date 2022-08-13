@@ -42,7 +42,7 @@
           </li>
         </ul>
         <div class="link">
-          <a href="">実績一覧へ</a>
+          <nuxt-link to="works">実績一覧へ</nuxt-link>
         </div>
       </div>
     </section>
@@ -77,6 +77,7 @@
                   <img :src="skill.icon" />
                 </figure>
                 <progress class="listItem__bar" min="0" max="10" :value="skill.level"></progress>
+                <p class="listItem__desc">{{ skill.desc }}</p>
               </li>
             </ul>
           </div>
@@ -124,7 +125,8 @@ export default {
       skill: [
         {
           icon: "icon-html.svg",
-          level: "8"
+          level: "8",
+          desc: "SEOを意識しながらのコーディングができます。多少htaccessなども修正して、ページ速度を速くすることも可能です。"
         },
         {
           icon: "icon-css.svg",
@@ -163,7 +165,7 @@ export default {
   },
   async asyncData({ $microcms }) {
     const results = await $microcms.get({
-      endpoint: 'results',
+      endpoint: 'works',
     })
     return {
       results,
@@ -322,7 +324,6 @@ export default {
         }
 
         h3 {
-          text-align: center;
           font-size: 1.6rem;
           margin-bottom: 10px;
         }
@@ -368,15 +369,19 @@ export default {
         font-size: 1.4rem;
       }
     }
-  progress {
-    -webkit-appearance: none;
-  }
-  ::-webkit-progress-bar {
-    background-color: #ccc;
-  }
-  ::-webkit-progress-value {
-    background-color: $skyBlue;
-  }
+
+    progress {
+      -webkit-appearance: none;
+    }
+
+    ::-webkit-progress-bar {
+      background-color: #ccc;
+    }
+
+    ::-webkit-progress-value {
+      background-color: $skyBlue;
+    }
+
     .contentButton {
       width: min(100%, 600px);
       margin: 0 auto 60px;
@@ -449,6 +454,11 @@ export default {
             display: flex;
             gap: 20px;
             align-items: center;
+            position: relative;
+
+            &:hover .listItem__desc {
+              opacity: 1;
+            }
 
             @include tab {
               width: calc((100% - (40px * 1)) / 2);
@@ -460,6 +470,15 @@ export default {
 
             &__bar {
               width: calc(100% - 60px);
+            }
+
+            &__desc {
+              padding: 20px;
+              opacity: 0;
+              position: absolute;
+              top: 0;
+              left: 0;
+              background: $lightBlue;
             }
           }
         }

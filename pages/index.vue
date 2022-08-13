@@ -57,7 +57,7 @@ export default {
       object: [
         {
           en: "ABOUT",
-          jp: "〜について",
+          jp: "自身について",
           numClass: "listItem--01",
           link: "/about"
         },
@@ -65,7 +65,7 @@ export default {
           en: "WORKS",
           jp: "実績一覧",
           numClass: "listItem--02",
-          link: "/about#aboutWorks"
+          link: "/works"
         },
         {
           en: "INFO",
