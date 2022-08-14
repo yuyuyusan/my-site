@@ -496,7 +496,6 @@ export default {
               height: 100vh;
               padding: 20px;
               background: rgba($lightBlue, .1);
-              display: none;
               position: fixed;
               top: 0;
               left: 0;
