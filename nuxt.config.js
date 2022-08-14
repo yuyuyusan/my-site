@@ -33,6 +33,9 @@ export default {
   css: [{
     src: '~/assets/scss/common.scss'
   }, ],
+  script: [{
+    src: 'common.js'
+  }],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -57,7 +60,7 @@ export default {
     },
     mode: process.env.NODE_ENV === 'production' ? 'server' : 'all',
   },
-  
+
   styleResources: {
     scss: ['~/assets/scss/_variable.scss'],
   },
