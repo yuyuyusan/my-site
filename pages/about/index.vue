@@ -72,12 +72,13 @@
               </p>
             </div>
             <ul class="list">
-              <li v-for="(skill, index) in skill" :key="index" class="listItem">
-                <figure class="listItem__pic popup">
+              <li v-for="(skill, index) in skill" :key="index" class="listItem"
+                :class="{ skillActive: modal === skill.num }" @click="modal = skill.num">
+                <figure class="listItem__pic">
                   <img :src="skill.icon" />
                 </figure>
                 <progress class="listItem__bar" min="0" max="10" :value="skill.level"></progress>
-                <div class="listItem__desc">
+                <div class="listItem__desc" v-show="modal === skill.num" @click="modal = skillClose">
                   <div class="bg">
                     <h4>{{ skill.title }}</h4>
                     <div class="inner">
@@ -88,6 +89,12 @@
                 </div>
               </li>
             </ul>
+            <!-- <div class="page">
+              <button @click="show = true">
+                <p>モーダル表示</p>
+              </button>
+              <Modal @closeModal="show = false" v-if="show" />
+            </div> -->
           </div>
 
           <div v-show="tab === 2" class="contentItem">
@@ -115,6 +122,7 @@ export default {
     return {
       // タブ切り替え
       tab: 1,
+      modal: false,
       // 自己紹介
       self: [
         {
@@ -134,57 +142,66 @@ export default {
           icon: "icon-html.svg",
           title: "HTML",
           level: "8",
+          num: "1",
           desc: "SEOを意識しながらのコーディングができます。多少htaccessなども修正して、ページ速度を速くすることも可能です。"
         },
         {
           icon: "icon-css.svg",
           title: "CSS",
           level: "8",
+          num: "2",
           desc: "自分の形は、BEM+少しFLOCSSでdartscssを使用しています。モダンなcssはcolissを毎週見ているので、ある程度取り入れています。svgアニメーションは少々"
         },
         {
           icon: "icon-js.svg",
           title: "Vanilla js",
           level: "5",
+          num: "3",
           desc: "vanilla jsの基本の形は抑えていますが、業務でもあまり使用しないため、開発などフルスクラッチでの経験はありません。案件で使う場面では時間あ理想なときは、あえて新しい事を調べて少しずつ勉強しています。webGLとIntersection Observer次の学ぶものです。"
         },
         {
           icon: "icon-php.svg",
           title: "PHP",
           level: "5",
+          num: "4",
           desc: "JavaScriptと同じく、基本の形は抑えていますが、経験業務はWordPressと修正案件での自作フォーム(smartyを使用していました)のみです。静的ページなどもphpでforeachなどを使用している程度です。今後は自作フォームの理解を深めて行こうと思っています。"
         },
         {
           icon: "icon-jquery.svg",
           title: "jQuery",
           level: "5",
+          num: "5",
           desc: "初めての学習がjQueryでしたので、vanilla jsよりは理解が深いです。ただ業務を重ねていくうちに脱jQueryしたい気持ちが強くなり基本的には使わない方向性で制作に取り組んでいます。※メニューなどには使用しています"
         },
         {
           icon: "icon-ts.svg",
           title: "TypeScript",
           level: "1",
+          num: "6",
           desc: "全くわかりません。JavaScriptとの並行して勉強していくのか、どうするのかで止まっています。"
         },
         {
           icon: "icon-wp.svg",
           title: "WordPress",
           level: "7",
+          num: "7",
           desc: "案件がWordPressが多いため、ある程度の知識はあるはずです。1回だけTCDのテーマから制作がありましたが、オリジナルテーマのほうがいいです。既存テーマ修正はまだ苦手です。"
         },
         {
           icon: "icon-vue.svg",
           title: "Vue.js",
           level: "2",
+          num: "8",
           desc: "このサイトで初めて触りました。かなり使いやすい印象で、今後も使っていきたいです。"
         },
         {
           icon: "icon-nuxt.svg",
           title: "Nuxt.js",
           level: "2",
+          num: "9",
           desc: "Vueと同じく初めて触り現在、todoなどを作成しつつ、理解を深めて行こうと思っています。"
         }
-      ]
+      ],
     }
   },
   async asyncData({ $microcms }) {
@@ -194,7 +211,7 @@ export default {
     return {
       results,
     }
-  }
+  },
 }
 </script>
 
@@ -500,6 +517,10 @@ export default {
               top: 0;
               left: 0;
               z-index: 1;
+
+              &.skillClose {
+                display: none;
+              }
 
               .bg {
                 width: min(100% - 40px, 560px);
