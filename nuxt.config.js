@@ -9,6 +9,11 @@ export default {
         charset: 'utf-8'
       },
       {
+        hid: 'robots',
+        name: 'robots',
+        content: 'noindex,follow'
+      },
+      {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1'
       },
