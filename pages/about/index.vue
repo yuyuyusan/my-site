@@ -120,6 +120,14 @@
 export default {
   name: 'AboutPage',
   layout: 'low',
+  async asyncData({ $microcms }) {
+    const results = await $microcms.get({
+      endpoint: 'works',
+    })
+    return {
+      results,
+    }
+  },
   data: () => {
     return {
       // タブ切り替え
@@ -211,16 +219,6 @@ export default {
           desc: "会社でgitを使用していないため、共同で使用したことがありません。個人で管理できるレベルです。"
         }
       ],
-    }
-  },
-
-
-  async asyncData({ $microcms }) {
-    const results = await $microcms.get({
-      endpoint: 'works',
-    })
-    return {
-      results,
     }
   },
 }
@@ -546,6 +544,7 @@ export default {
                   display: flex;
                   align-items: center;
                   justify-content: space-between;
+
                   svg {
                     width: 16px;
                   }

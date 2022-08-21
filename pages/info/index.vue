@@ -53,17 +53,7 @@ export default {
     font-size: 3.6rem;
     text-align: center;
   }
-} .modal {
-   position: fixed;
-   top: 0;
-   width: 100%;
-   height: 100%;
-   .modal-wrap {
-     background-color: rgba(0,0,0,0.5);
-     height: 100%;
-   }
- }
-
+}
 
 .infoList {
   @include mb100;

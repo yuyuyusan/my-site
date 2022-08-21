@@ -52,6 +52,15 @@
 <script>
 
 export default {
+  layout: 'default',
+  async asyncData({ $microcms }) {
+    const info = await $microcms.get({
+      endpoint: 'info',
+    })
+    return {
+      info,
+    }
+  },
   data() {
     return {
       object: [
@@ -76,15 +85,6 @@ export default {
       ]
     };
   },
-  layout: 'default',
-  async asyncData({ $microcms }) {
-    const info = await $microcms.get({
-      endpoint: 'info',
-    })
-    return {
-      info,
-    }
-  }
 }
 </script>
 
