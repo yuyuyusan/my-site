@@ -3,10 +3,10 @@
     <nav class="headerNav" id="headerNav">
       <ul class="list">
         <li>
-          <router-link class="nav-link" to="/about">ABOUT</router-link>
+          <nuxt-link class="nav-link" to="/about">ABOUT</nuxt-link>
         </li>
         <li>
-          <router-link class="nav-link" to="/info">INFORMATION</router-link>
+          <nuxt-link class="nav-link" to="/info">INFORMATION</nuxt-link>
         </li>
       </ul>
     </nav>

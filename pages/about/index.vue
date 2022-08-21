@@ -80,10 +80,17 @@
                 <progress class="listItem__bar" min="0" max="10" :value="skill.level"></progress>
               </li>
             </ul>
+
             <div class="listItem__desc" v-for="(skill, index) in skill" :key="index" v-show="modal === skill.num"
               @click="modal = skillClose">
               <div class="bg">
-                <h4>{{ skill.title }}</h4>
+                <h4>
+                  {{ skill.title }}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <path
+                      d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z" />
+                  </svg>
+                </h4>
                 <div class="inner">
                   <figure><img :src="skill.icon" :alt="skill.title" /></figure>
                   <p>{{ skill.desc }}</p>
@@ -128,7 +135,7 @@ export default {
         {
           boxClass: "innerBottom",
           title: "略歴",
-          desc: "昔はサッカーやっていて、現在は、スノーボードとアニメ漫画好きで、ギャップがすごいとよく言われます。業務終了後、土日祝ずっと勉強しているので、そろそろ趣味にコーディング勉強入れてもいいですか。"
+          desc: "昔はサッカーやっていて、現在は、スノーボードとアニメ漫画好きで、ギャップがすごいとよく言われます。そろそろ趣味にコーディング入れたいです。"
         }
       ],
       // スキル
@@ -138,7 +145,7 @@ export default {
           title: "HTML",
           level: "8",
           num: "1",
-          desc: "SEOを意識しながらのコーディングができます。多少htaccessなども修正して、ページ速度を速くすることも可能です。"
+          desc: "SEOを意識しながらのコーディングができます。多少htaccessなども修正して、ページ速度を速くすることも可能です。SEOを意識しながらのコーディングができます。多少htaccessなども修正して、ページ速度を速くすることも可能です。"
         },
         {
           icon: "../icon-css.svg",
@@ -516,7 +523,7 @@ export default {
               width: 100%;
               height: 100vh;
               padding: 20px;
-              background: rgba($lightBlue, .1);
+              background: rgba(0, 0, 0, .5);
               position: fixed;
               top: 0;
               left: 0;
@@ -536,16 +543,23 @@ export default {
                   margin-bottom: 15px;
                   padding-bottom: 5px;
                   border-bottom: 1px solid $blue;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  svg {
+                    width: 16px;
+                  }
                 }
 
                 .inner {
+                  height: 100%;
+                  padding-bottom: 40px;
                   display: flex;
                   align-items: flex-start;
-                  gap: 20px;
+                  gap: 30px;
 
                   figure {
-                    width: 50%;
-                    padding: 20px;
+                    width: 140px;
 
                     img {
                       aspect-ratio: 1/1;
@@ -555,10 +569,12 @@ export default {
                   }
 
                   p {
-                    width: 50%;
+                    width: calc(100% - 140px);
+                    height: 100%;
                     line-height: 2;
                     font-size: 1.4rem;
                     overflow-y: scroll;
+
                   }
                 }
               }
