@@ -29,16 +29,15 @@
         </h2>
 
         <ul class="list">
-          <li v-for="results in results.contents" :key="results.id" class="listItem">
+                 <li class="listItem" v-for="content in contents" :key="content.id">
             <figure class="listItem__pic">
-              <nuxt-link :to="`/works/${results.id}`">
-                <img :src=results.image.url alt="">
+              <nuxt-link :to="`/works/${content.id}`">
+                <img :src="content.image.url">
               </nuxt-link>
             </figure>
-            <p class="date" :datetime="results.publishedAt"
-              v-text="$dateFns.format(new Date(results.publishedAt), 'yyyy.MM.dd')">
-            </p>
-            <h3>{{ results.title }}</h3>
+            <p class="date" :datetime="content.publishedAt"
+              v-text="$dateFns.format(new Date(content.publishedAt), 'yyyy.MM.dd')"></p>
+            <h3>{{ content.title }}</h3>
           </li>
         </ul>
         <div class="link">
@@ -106,7 +105,7 @@
                 デザインについては、UIは苦手ですがUXは意見できるくらいのレベルです。デザイン用語、デザインツール、UXの基本は抑えています。<br>
                 パッケージ管理はgulpは使ってなく、npm scriptsのみです。<br>
                 サーバー等の知識は基本は知っている状態です。<br>
-                今後は、Vue,Nuxtを勉強しつつ、データベースについて、React、アプリも作りたいのでReact NativeもしくはFlutterを勉強しようと考えています。
+                今後は、Vue,Nuxtを勉強しつつ、React、データベースについて、アプリも作りたいのでReact NativeもしくはFlutterを勉強しようと考えています。
               </p>
             </div>
           </div>
@@ -117,16 +116,20 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
   name: 'AboutPage',
   layout: 'low',
-  async asyncData({ $microcms }) {
-    const results = await $microcms.get({
-      endpoint: 'works',
-    })
-    return {
-      results,
-    }
+  async asyncData() {
+    const { data } = await axios.get(
+      'https://yushi.microcms.io/api/v1/works/',
+      {
+        headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' }
+      }
+    )
+    return data
   },
   data: () => {
     return {
@@ -142,8 +145,8 @@ export default {
         },
         {
           boxClass: "innerBottom",
-          title: "略歴",
-          desc: "昔はサッカーやっていて、現在は、スノーボードとアニメ漫画好きで、ギャップがすごいとよく言われます。そろそろ趣味にコーディング入れたいです。"
+          title: "趣味",
+          desc: "スノーボード、散歩、アニメ、漫画。そろそろ趣味にコーディング入れたいです。"
         }
       ],
       // スキル
@@ -153,35 +156,35 @@ export default {
           title: "HTML",
           level: "8",
           num: "1",
-          desc: "SEOを意識しながらのコーディングができます。多少htaccessなども修正して、ページ速度を速くすることも可能です。SEOを意識しながらのコーディングができます。多少htaccessなども修正して、ページ速度を速くすることも可能です。"
+          desc: "SEOを意識しながらのコーディングができます。多少htaccessなども修正して、ページ速度を速くすることも可能です。pugなどは使用したことがまだありません。"
         },
         {
           icon: "../icon-css.svg",
           title: "CSS",
           level: "8",
           num: "2",
-          desc: "自分の形は、BEM+少しFLOCSSでdartscssを使用しています。モダンなcssはcolissを毎週見ているので、ある程度取り入れています。svgアニメーションは少々"
+          desc: "自分の形は、BEM+少しFLOCSSでdartscssを使用しています。モダンなcssはcolissを毎週見ているので、ある程度取り入れています。svgに関しては、svg spriteとアニメーション少し触ったことがある程度です。"
         },
         {
           icon: "../icon-js.svg",
           title: "Vanilla js",
           level: "5",
           num: "3",
-          desc: "vanilla jsの基本の形は抑えていますが、業務でもあまり使用しないため、開発などフルスクラッチでの経験はありません。案件で使う場面では時間あ理想なときは、あえて新しい事を調べて少しずつ勉強しています。webGLとIntersection Observer次の学ぶものです。"
+          desc: "vanilla jsの基本の形は抑えていますが、業務でもあまり使用しないため、開発などフルスクラッチでの経験はありません。案件で使う場面では時間がありそうなときは、あえて新しい事を調べて少しずつ勉強しています。webGLとIntersection Observerを次は学ぼうと考えています。"
         },
         {
           icon: "../icon-php.svg",
           title: "PHP",
           level: "5",
           num: "4",
-          desc: "JavaScriptと同じく、基本の形は抑えていますが、経験業務はWordPressと修正案件での自作フォーム(smartyを使用していました)のみです。静的ページなどもphpでforeachなどを使用している程度です。今後は自作フォームの理解を深めて行こうと思っています。"
+          desc: "JavaScriptと同じく、基本の形は抑えていますが、経験業務はWordPressと修正案件での自作フォーム(smartyを使用していました)のみです。静的ページなどもphpでforeachなどを使用している程度です。今後は自作フォームなどの理解を深めて行こうと思っています。"
         },
         {
           icon: "../icon-jquery.svg",
           title: "jQuery",
           level: "5",
           num: "5",
-          desc: "初めての学習がjQueryでしたので、vanilla jsよりは理解が深いです。ただ業務を重ねていくうちに脱jQueryしたい気持ちが強くなり基本的には使わない方向性で制作に取り組んでいます。※メニューなどには使用しています"
+          desc: "初めての学習がjQueryでしたので、vanilla jsよりは理解が深いです。ただ業務を重ねていくうちに脱jQueryしたい気持ちが強くなり基本的には使わない方向性で制作に取り組んでいます。※ハンバーガーメニューなどには使用しています"
         },
         {
           icon: "../icon-ts.svg",
@@ -195,7 +198,7 @@ export default {
           title: "WordPress",
           level: "7",
           num: "7",
-          desc: "案件がWordPressが多いため、ある程度の知識はあるはずです。1回だけTCDのテーマから制作がありましたが、オリジナルテーマのほうがいいです。既存テーマ修正はまだ苦手です。"
+          desc: "案件がWordPressが多いため、ある程度の知識はあるはずです。1回だけTCDのテーマから制作がありましたが、オリジナルテーマのほうがやりやすいです。がっちりめのECサイトの経験はないのですが、完結なECサイトの制作は業務で経験しました。"
         },
         {
           icon: "../icon-vue.svg",
@@ -507,6 +510,10 @@ export default {
 
             @include tab {
               width: calc((100% - (40px * 1)) / 2);
+            }
+
+            &:hover {
+              cursor: pointer;
             }
 
             &__pic {
