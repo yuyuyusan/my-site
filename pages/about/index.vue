@@ -29,7 +29,7 @@
         </h2>
 
         <ul class="list">
-                 <li class="listItem" v-for="content in contents" :key="content.id">
+          <li class="listItem" v-for="content in contents" :key="content.id">
             <figure class="listItem__pic">
               <nuxt-link :to="`/works/${content.id}`">
                 <img :src="content.image.url">
@@ -177,14 +177,14 @@ export default {
           title: "PHP",
           level: "5",
           num: "4",
-          desc: "JavaScriptと同じく、基本の形は抑えていますが、経験業務はWordPressと修正案件での自作フォーム(smartyを使用していました)のみです。静的ページなどもphpでforeachなどを使用している程度です。今後は自作フォームなどの理解を深めて行こうと思っています。"
+          desc: "JavaScriptと同じく、基本の形は抑えていますが、経験業務はWordPressと修正案件での自作フォーム(smartyを使用していました)のみです。ほとんどWordpressがメインです。今後は自作フォームなどの理解を深めて行こうと思っています。"
         },
         {
           icon: "../icon-jquery.svg",
           title: "jQuery",
           level: "5",
           num: "5",
-          desc: "初めての学習がjQueryでしたので、vanilla jsよりは理解が深いです。ただ業務を重ねていくうちに脱jQueryしたい気持ちが強くなり基本的には使わない方向性で制作に取り組んでいます。※ハンバーガーメニューなどには使用しています"
+          desc: "初めての学習がjQueryでしたので、vanilla jsよりは理解が深いです。ただ業務を重ねていくうちに脱jQueryしようと思い始め基本的には使わない方向性で制作に取り組んでいます。"
         },
         {
           icon: "../icon-ts.svg",
@@ -198,7 +198,7 @@ export default {
           title: "WordPress",
           level: "7",
           num: "7",
-          desc: "案件がWordPressが多いため、ある程度の知識はあるはずです。1回だけTCDのテーマから制作がありましたが、オリジナルテーマのほうがやりやすいです。がっちりめのECサイトの経験はないのですが、完結なECサイトの制作は業務で経験しました。"
+          desc: "案件がWordPressが多いため、ある程度の知識はあるはずです。1回だけTCDのテーマから制作がありましたが、オリジナルテーマのほうがやりやすいです。がっちりめのECサイトの経験はないのですが、機能少なめなECサイトの制作は業務で経験しました。"
         },
         {
           icon: "../icon-vue.svg",
