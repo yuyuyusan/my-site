@@ -38,7 +38,7 @@ export default {
 
     li {
       a {
-        font-size: 2rem;
+        font-size: 1.6rem;
         font-weight: 500;
         color: #fff;
       }

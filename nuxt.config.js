@@ -3,10 +3,15 @@ export default {
   head: {
     title: 'y-web',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ja'
     },
     meta: [{
         charset: 'utf-8'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Web制作会社に務め、自称コーダーorマークアップエンジニア。近い目標でフロントエンドエンジニアを目指し日々奮闘中。'
       },
       {
         hid: 'robots',
@@ -18,11 +23,6 @@ export default {
         content: 'width=device-width, initial-scale=1'
       },
       {
-        hid: 'description',
-        name: 'description',
-        content: ''
-      },
-      {
         name: 'format-detection',
         content: 'telephone=no'
       }
@@ -31,17 +31,19 @@ export default {
       rel: 'icon',
       type: 'image/x-icon',
       href: '/yu.jpg'
-    }]
+    }],
+    script: [{
+      src: 'common.js'
+    }],
   },
-
+  loading: '~/components/Loading.vue',
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [{
     src: '~/assets/scss/common.scss'
   }, ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -63,7 +65,6 @@ export default {
     },
     mode: process.env.NODE_ENV === 'production' ? 'server' : 'all',
   },
-
   styleResources: {
     scss: ['~/assets/scss/_variable.scss'],
   },
@@ -78,6 +79,34 @@ export default {
       inject: true
     }]
   ],
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: '/page/works/:p',
+        component: resolve(__dirname, 'pages/works/index.vue'),
+        name: 'page',
+      })
+    },
+  },
+  generate: {
+    async routes() {
+      const limit = 30
+      const range = (start, end) =>
+        [...Array(end - start + 1)].map((_, i) => start + i)
+
+      // 一覧のページング
+      const pages = await axios
+        .get(`https://yushi.microcms.io/api/v1/works?limit=0`, {
+          headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' },
+        })
+        .then((res) =>
+          range(1, Math.ceil(res.data.totalCount / limit)).map((p) => ({
+            route: `/page/works/${p}`,
+          }))
+        )
+      return pages
+    },
+  },
   //いらないかも
   googleFonts: {
     googleFonts: {

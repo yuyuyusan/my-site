@@ -10,6 +10,11 @@
             </nuxt-link>
           </li>
           <li>
+            <nuxt-link class="nav-link" to="/works">
+              <span class="en">WORKS</span>
+            </nuxt-link>
+          </li>
+          <li>
             <nuxt-link class="nav-link" to="/info">
               <span class="en">INFORMATION</span>
             </nuxt-link>
@@ -57,7 +62,7 @@ export default {
       li {
         a {
           color: #fff;
-          font-size: 2rem;
+          font-size: 1.4rem;
           font-family: $f-roboto;
           font-weight: 500;
         }
@@ -79,7 +84,7 @@ export default {
   .copy {
     text-align: center;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 </style>

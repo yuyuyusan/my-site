@@ -124,7 +124,7 @@ export default {
   layout: 'low',
   async asyncData() {
     const { data } = await axios.get(
-      'https://yushi.microcms.io/api/v1/works/',
+      'https://yushi.microcms.io/api/v1/works?limit=3',
       {
         headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' }
       }
@@ -146,7 +146,7 @@ export default {
         {
           boxClass: "innerBottom",
           title: "趣味",
-          desc: "スノーボード、散歩、アニメ、漫画。そろそろ趣味にコーディング入れたいです。"
+          desc: "スノーボード、散歩、漫画、昔はアニメ鑑賞でしたが、現在はアニメの映像を鑑賞と言葉を聴くこと。"
         }
       ],
       // スキル

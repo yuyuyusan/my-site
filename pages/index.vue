@@ -34,7 +34,7 @@
           </nuxt-link>
         </h2>
         <ul class="list">
-        <li class="listItem" v-for="content in contents" :key="content.id">
+          <li class="listItem" v-for="content in contents" :key="content.id">
             <nuxt-link :to="`/info/${content.id}`">
               <p class="date" :datetime="content.publishedAt"
                 v-text="$dateFns.format(new Date(content.publishedAt), 'yyyy.MM.dd')"></p>
@@ -49,8 +49,7 @@
 </template>
 
 <script>
-import axios from 'axios'
-
+import axios from 'axios';
 export default {
   layout: 'default',
   async asyncData() {
@@ -64,6 +63,11 @@ export default {
   },
   data() {
     return {
+      script: [
+        {
+          src: 'common.js'
+        }
+      ],
       object: [
         {
           en: "ABOUT",
@@ -86,11 +90,14 @@ export default {
       ]
     };
   },
-}
+
+};
+
 </script>
 
 <style lang="scss" scoped>
-.topMv {
+
+  .topMv {
   background: rgba($navy , .2);
   padding: 100px 0 0;
 
