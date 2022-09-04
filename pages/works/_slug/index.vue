@@ -14,7 +14,7 @@
           <figure>
             <img :src="image.url" alt="">
           </figure>
-          <div class="post" v-html="text">
+          <div class="post" v-html="detail">
           </div>
         </div>
       </div>
@@ -78,8 +78,15 @@ export default {
         margin-bottom: 20px;
       }
 
-      p {
-        line-height: 1.7;
+      .post {
+        p {
+          line-height: 1.7!important;
+
+          a {
+            color: $lightBlue  !important;
+            text-decoration: underline !important;
+          }
+        }
       }
     }
   }

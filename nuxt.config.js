@@ -79,34 +79,34 @@ export default {
       inject: true
     }]
   ],
-  router: {
-    extendRoutes(routes, resolve) {
-      routes.push({
-        path: '/page/works/:p',
-        component: resolve(__dirname, 'pages/works/index.vue'),
-        name: 'page',
-      })
-    },
-  },
-  generate: {
-    async routes() {
-      const limit = 30
-      const range = (start, end) =>
-        [...Array(end - start + 1)].map((_, i) => start + i)
+  // router: {
+  //   extendRoutes(routes, resolve) {
+  //     routes.push({
+  //       path: '/page/works/:p',
+  //       component: resolve(__dirname, 'pages/works/index.vue'),
+  //       name: 'page',
+  //     })
+  //   },
+  // },
+  // generate: {
+  //   async routes() {
+  //     const limit = 30
+  //     const range = (start, end) =>
+  //       [...Array(end - start + 1)].map((_, i) => start + i)
 
-      // 一覧のページング
-      const pages = await axios
-        .get(`https://yushi.microcms.io/api/v1/works?limit=0`, {
-          headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' },
-        })
-        .then((res) =>
-          range(1, Math.ceil(res.data.totalCount / limit)).map((p) => ({
-            route: `/page/works/${p}`,
-          }))
-        )
-      return pages
-    },
-  },
+  //     // 一覧のページング
+  //     const pages = await axios
+  //       .get(`https://yushi.microcms.io/api/v1/works?limit=0`, {
+  //         headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' },
+  //       })
+  //       .then((res) =>
+  //         range(1, Math.ceil(res.data.totalCount / limit)).map((p) => ({
+  //           route: `/page/works/${p}`,
+  //         }))
+  //       )
+  //     return pages
+  //   },
+  // },
   //いらないかも
   googleFonts: {
     googleFonts: {

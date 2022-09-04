@@ -65,26 +65,46 @@ export default {
 
   .container {
     @include contentWidth-s;
+  }
+}
 
-    .list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      margin: 0 auto;
+.infoList {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 0 auto;
 
-      &Item {
-        width: calc((100% - (30px * 2)) / 3);
+    @include tab {
+      gap: 20px;
+    }
 
-        &__pic {
-          border: 1px solid #ccc;
-          margin-bottom: 20px;
+    &Item {
+      width: calc((100% - (30px * 2)) / 3);
 
-          img {
-            aspect-ratio: 3/2;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
+      @include tab {
+        width: calc((100% - (30px * 1)) / 2);
+      }
+
+      &__pic {
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+
+        img {
+          aspect-ratio: 3/2;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .date {
+        @include tab {
+          font-size: 1.2rem;
+        }
+      }
+      h3 {
+        @include tab {
+          font-size: 1.4rem;
         }
       }
     }
