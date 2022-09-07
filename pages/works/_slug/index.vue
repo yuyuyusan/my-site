@@ -12,10 +12,12 @@
         <div class="inner">
           <h2 class="title">{{ title }}</h2>
           <figure>
-            <img :src="image.url" alt="">
+            <a :href="url" target="_blank" rel="noopenner" class="">
+              <img :src="image.url" alt="">
+            </a>
           </figure>
-          <div class="post" v-html="detail">
-          </div>
+          <p class="date">{{ date }}</p>
+          <div class="post" v-html="detail"></div>
         </div>
       </div>
     </section>
@@ -24,6 +26,7 @@
 
 <script>
 import axios from 'axios'
+import { platform } from 'os';
 
 export default {
   layout: 'low',
@@ -75,17 +78,27 @@ export default {
 
       figure {
         border: 1px solid #ccc;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
       }
 
+      .date {
+        display: inline-block;
+        margin-bottom: 40px;
+        padding: 10px 30px;
+        background: $navy;
+        color: #fff;
+        @include tab {
+          font-size: 1.4rem;
+          padding: 6px 20px;
+          margin-bottom: 20px;
+        }
+      }
       .post {
+        @include tab {
+          font-size: 1.4rem;
+        }
         p {
-          line-height: 1.7!important;
-
-          a {
-            color: $lightBlue  !important;
-            text-decoration: underline !important;
-          }
+          line-height: 2!important;
         }
       }
     }

@@ -35,8 +35,7 @@
                 <img :src="content.image.url">
               </nuxt-link>
             </figure>
-            <p class="date" :datetime="content.publishedAt"
-              v-text="$dateFns.format(new Date(content.publishedAt), 'yyyy.MM.dd')"></p>
+            <p class="date">{{ content.date }}</p>
             <h3>{{ content.title }}</h3>
           </li>
         </ul>
