@@ -181,7 +181,7 @@ export default {
         {
           icon: "../icon-jquery.svg",
           title: "jQuery",
-          level: "5",
+          level: "7",
           num: "5",
           desc: "初めての学習がjQueryでしたので、vanilla jsよりは理解が深いです。ただ業務を重ねていくうちに脱jQueryしようと思い始め基本的には使わない方向性で制作に取り組んでいます。"
         },
@@ -195,28 +195,28 @@ export default {
         {
           icon: "../icon-wp.svg",
           title: "WordPress",
-          level: "7",
+          level: "8",
           num: "7",
           desc: "案件がWordPressが多いため、ある程度の知識はあるはずです。1回だけTCDのテーマから制作がありましたが、オリジナルテーマのほうがやりやすいです。がっちりめのECサイトの経験はないのですが、機能少なめなECサイトの制作は業務で経験しました。"
         },
         {
           icon: "../icon-vue.svg",
           title: "Vue.js",
-          level: "2",
+          level: "3",
           num: "8",
           desc: "このサイトで初めて触りました。かなり使いやすい印象で、今後も使っていきたいです。"
         },
         {
           icon: "../icon-nuxt.svg",
           title: "Nuxt.js",
-          level: "2",
+          level: "3",
           num: "9",
           desc: "Vueと同じく初めて触り現在、todoなどを作成しつつ、理解を深めて行こうと思っています。"
         },
         {
           icon: "../icon-git.svg",
           title: "git",
-          level: "3",
+          level: "4",
           num: "10",
           desc: "会社でgitを使用していないため、共同で使用したことがありません。個人で管理できるレベルです。"
         }

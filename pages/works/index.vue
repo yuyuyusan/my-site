@@ -71,11 +71,11 @@ export default {
   .list {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 60px 30px;
     margin: 0 auto;
 
     @include tab {
-      gap: 20px;
+      gap: 40px 20px;
     }
 
     &Item {
@@ -97,11 +97,13 @@ export default {
         }
       }
       .date {
+        font-size: 1.4rem;
         @include tab {
           font-size: 1.2rem;
         }
       }
       h3 {
+        font-size: 1.6rem;
         @include tab {
           font-size: 1.4rem;
         }
