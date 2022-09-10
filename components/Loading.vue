@@ -34,7 +34,7 @@
 }
 
 .loader {
-  color: #ffffff;
+  color: rgb(255, 162, 12);
   font-size: 20px;
   margin: 100px auto;
   width: 1em;
