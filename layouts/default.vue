@@ -1,16 +1,14 @@
 <template>
   <div>
-    <header>
+    <!-- <header>
       <div class="container">
         <div class="logo">
           <nuxt-link class="nav-link" to="/">
             YS
           </nuxt-link>
         </div>
-        <!-- nav -->
-        <HeaderNav />
       </div>
-    </header>
+    </header> -->
     <!-- main content -->
     <nuxt />
     <!-- footer -->
@@ -31,6 +29,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  
 
     @include sp {
       width: min(100% - 40px, $pc-m);

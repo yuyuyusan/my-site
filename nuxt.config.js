@@ -11,7 +11,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Web制作会社に務め、自称コーダーorマークアップエンジニア。近い目標でフロントエンドエンジニアを目指し日々奮闘中。'
+        content: 'Web制作会社に務め、コーダーorマークアップエンジニア。近い目標でフロントエンドエンジニアを目指し日々奮闘中。'
       },
       {
         hid: 'robots',

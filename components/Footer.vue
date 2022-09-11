@@ -58,6 +58,9 @@ export default {
     .footerNav ul {
       display: flex;
       gap: 50px;
+      @include tab {
+        gap: 20px;
+      }
 
       li {
         a {
