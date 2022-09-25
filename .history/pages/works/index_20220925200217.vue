@@ -16,6 +16,9 @@
               <nuxt-link :to="`/works/${content.id}`">
                 <img :src="content.image.url">
               </nuxt-link>
+              <transition name="animePic">
+                <img v-if="show" :src="content.image.url" class="dammy">
+              </transition>
             </figure>
             <p class="date">{{ content.date }}</p>
             <h3>{{ content.title }}</h3>
@@ -33,6 +36,9 @@ export default {
   layout: 'low',
   transition: {
     name: "animePic",
+  },
+  data: {
+    show: true
   },
   async asyncData() {
     const { data } = await axios.get(
@@ -54,8 +60,7 @@ export default {
   transition: opacity .5s;
 }
 
-.animePic-enter,
-.animePic-leave-to {
+.animePic-enter, .animePic-leave-to {
   opacity: 0;
 }
 
@@ -65,11 +70,10 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
   object-fit: cover;
 }
 
- .lowMv {
+.animePic-enter-active .lowMv {
   background: url(../../static/low_mv.jpg)center center / cover;
   @include mb100;
   @include p100;

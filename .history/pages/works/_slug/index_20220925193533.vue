@@ -5,7 +5,7 @@
       <div class="container">
         <div class="inner">
           <transition name="animePic">
-            <figure class="picActive">
+            <figure>
               <a :href="url" target="_blank" rel="noopenner" class="">
                 <img :src="image.url" alt="">
               </a>
@@ -44,7 +44,7 @@ export default {
 }
 
 .animePic-enter-active {
-  transition: opacity 1s;
+  transition: opacity 2s;
 }
 
 .singleContent {

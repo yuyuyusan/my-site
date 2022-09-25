@@ -496,9 +496,11 @@ export default {
 
 .topNews .container .list {
   &Item {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
     @include tab {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
       border-bottom: 1px dotted rgba(255,255,255);
     }
     &:last-child {

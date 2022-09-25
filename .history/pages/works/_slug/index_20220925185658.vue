@@ -4,13 +4,11 @@
     <section class="singleContent">
       <div class="container">
         <div class="inner">
-          <transition name="animePic">
-            <figure class="picActive">
-              <a :href="url" target="_blank" rel="noopenner" class="">
-                <img :src="image.url" alt="">
-              </a>
-            </figure>
-          </transition>
+          <figure>
+            <a :href="url" target="_blank" rel="noopenner" class="">
+              <img :src="image.url" alt="">
+            </a>
+          </figure>
           <h2 class="title">{{ title }}</h2>
           <p class="date">{{ date }}</p>
           <div class="post" v-html="detail"></div>
@@ -39,13 +37,7 @@ export default {
 
 
 <style lang="scss" scoped>
-.animePic-enter {
-  opacity: 0;
-}
 
-.animePic-enter-active {
-  transition: opacity 1s;
-}
 
 .singleContent {
   @include mb100;

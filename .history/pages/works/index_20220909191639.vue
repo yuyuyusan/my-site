@@ -12,7 +12,7 @@
       <div class="container">
         <ul class="list">
           <li class="listItem" v-for="content in contents" :key="content.id">
-            <figure class="listItem__pic" @click="show = !show">
+            <figure class="listItem__pic">
               <nuxt-link :to="`/works/${content.id}`">
                 <img :src="content.image.url">
               </nuxt-link>
@@ -31,9 +31,6 @@ import axios from 'axios'
 
 export default {
   layout: 'low',
-  transition: {
-    name: "animePic",
-  },
   async asyncData() {
     const { data } = await axios.get(
       'https://yushi.microcms.io/api/v1/works?limit=30',
@@ -49,27 +46,7 @@ export default {
 
 
 <style lang="scss" scoped>
-.animePic-enter-active,
-.animePic-leave-active {
-  transition: opacity .5s;
-}
-
-.animePic-enter,
-.animePic-leave-to {
-  opacity: 0;
-}
-
-.dammy {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  object-fit: cover;
-}
-
- .lowMv {
+.lowMv {
   background: url(../../static/low_mv.jpg)center center / cover;
   @include mb100;
   @include p100;
@@ -111,7 +88,6 @@ export default {
       &__pic {
         border: 1px solid #ccc;
         margin-bottom: 20px;
-        position: relative;
 
         img {
           aspect-ratio: 3/2;
@@ -120,18 +96,14 @@ export default {
           object-fit: cover;
         }
       }
-
       .date {
         font-size: 1.4rem;
-
         @include tab {
           font-size: 1.2rem;
         }
       }
-
       h3 {
         font-size: 1.6rem;
-
         @include tab {
           font-size: 1.4rem;
         }

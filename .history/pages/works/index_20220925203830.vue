@@ -51,7 +51,7 @@ export default {
 <style lang="scss" scoped>
 .animePic-enter-active,
 .animePic-leave-active {
-  transition: opacity .5s;
+  transition: opacity 10s;
 }
 
 .animePic-enter,

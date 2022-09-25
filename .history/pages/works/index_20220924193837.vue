@@ -12,11 +12,13 @@
       <div class="container">
         <ul class="list">
           <li class="listItem" v-for="content in contents" :key="content.id">
-            <figure class="listItem__pic" @click="show = !show">
-              <nuxt-link :to="`/works/${content.id}`">
-                <img :src="content.image.url">
-              </nuxt-link>
-            </figure>
+            <transition name="picture">
+              <figure class="listItem__pic">
+                <nuxt-link :to="`/works/${content.id}`">
+                  <img :src="content.image.url">
+                </nuxt-link>
+              </figure>
+            </transition>
             <p class="date">{{ content.date }}</p>
             <h3>{{ content.title }}</h3>
           </li>
@@ -32,7 +34,7 @@ import axios from 'axios'
 export default {
   layout: 'low',
   transition: {
-    name: "animePic",
+    name: 'picture',
   },
   async asyncData() {
     const { data } = await axios.get(
@@ -49,27 +51,15 @@ export default {
 
 
 <style lang="scss" scoped>
-.animePic-enter-active,
-.animePic-leave-active {
-  transition: opacity .5s;
+  .page-enter-active,
+.page-leave-active {
+  transition: opacity 1s;
 }
-
-.animePic-enter,
-.animePic-leave-to {
+.page-enter,
+.page-leave-active {
   opacity: 0;
 }
-
-.dammy {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  object-fit: cover;
-}
-
- .lowMv {
+.lowMv {
   background: url(../../static/low_mv.jpg)center center / cover;
   @include mb100;
   @include p100;
@@ -111,7 +101,6 @@ export default {
       &__pic {
         border: 1px solid #ccc;
         margin-bottom: 20px;
-        position: relative;
 
         img {
           aspect-ratio: 3/2;

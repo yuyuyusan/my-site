@@ -12,11 +12,13 @@
       <div class="container">
         <ul class="list">
           <li class="listItem" v-for="content in contents" :key="content.id">
-            <figure class="listItem__pic" @click="show = !show">
-              <nuxt-link :to="`/works/${content.id}`">
-                <img :src="content.image.url">
-              </nuxt-link>
-            </figure>
+            <transition name="picture">
+              <figure class="listItem__pic bnr">
+                <nuxt-link :to="`/works/${content.id}`">
+                  <img :src="content.image.url">
+                </nuxt-link>
+              </figure>
+            </transition>
             <p class="date">{{ content.date }}</p>
             <h3>{{ content.title }}</h3>
           </li>
@@ -30,10 +32,8 @@
 import axios from 'axios'
 
 export default {
+  transition: "expandFade",
   layout: 'low',
-  transition: {
-    name: "animePic",
-  },
   async asyncData() {
     const { data } = await axios.get(
       'https://yushi.microcms.io/api/v1/works?limit=30',
@@ -49,27 +49,43 @@ export default {
 
 
 <style lang="scss" scoped>
-.animePic-enter-active,
-.animePic-leave-active {
-  transition: opacity .5s;
+@keyframes expandFadeOut {
+  0% {}
+
+  100% {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
-.animePic-enter,
-.animePic-leave-to {
-  opacity: 0;
+.expandFade-leave-active {
+  transition: 0.8s;
 }
 
-.dammy {
-  position: absolute;
-  left: 0;
-  top: 0;
+.expandFade-leave-active .bnr::before {
+  animation: expandFadeOut 0.8s 0s ease-in-out forwards;
+}
+
+.bnr {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+.bnr::before {
+  content: "";
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
   z-index: -1;
-  object-fit: cover;
 }
 
- .lowMv {
+.lowMv {
   background: url(../../static/low_mv.jpg)center center / cover;
   @include mb100;
   @include p100;
@@ -111,7 +127,6 @@ export default {
       &__pic {
         border: 1px solid #ccc;
         margin-bottom: 20px;
-        position: relative;
 
         img {
           aspect-ratio: 3/2;

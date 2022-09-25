@@ -36,8 +36,6 @@ export default {
       src: 'common.js'
     }],
   },
-  // loading: '~/components/Loading.vue',
-  // Global CSS: https://go.nuxtjs.dev/config-css
   css: [{
     src: '~/assets/scss/common.scss'
   }, ],

@@ -1,17 +1,21 @@
 
 <template>
   <main class="singleMain">
+    <section class="lowMv">
+      <h1>
+        <span class="en">INFORMATION</span>
+      </h1>
+    </section>
+
     <section class="singleContent">
       <div class="container">
         <div class="inner">
-          <transition name="animePic">
-            <figure class="picActive">
-              <a :href="url" target="_blank" rel="noopenner" class="">
-                <img :src="image.url" alt="">
-              </a>
-            </figure>
-          </transition>
           <h2 class="title">{{ title }}</h2>
+          <figure>
+            <a :href="url" target="_blank" rel="noopenner" class="">
+              <img :src="image.url" alt="">
+            </a>
+          </figure>
           <p class="date">{{ date }}</p>
           <div class="post" v-html="detail"></div>
         </div>
@@ -39,12 +43,16 @@ export default {
 
 
 <style lang="scss" scoped>
-.animePic-enter {
-  opacity: 0;
-}
+.lowMv {
+  background: url(../../../static/low_mv.jpg)center center / cover;
+  @include mb100;
+  @include p100;
 
-.animePic-enter-active {
-  transition: opacity 1s;
+  h1 {
+    @include contentWidth-s;
+    font-size: 3.6rem;
+    text-align: center;
+  }
 }
 
 .singleContent {
@@ -56,25 +64,31 @@ export default {
 }
 
 .singleContent .container .inner {
-  width: min(100%, 800px);
-  margin: 0 auto;
 
   h2 {
+    width: min(100%, 800px);
+    margin: 0 auto;
     font-size: 2.4rem;
     text-align: center;
     margin-bottom: 40px;
   }
 
   h3 {
+    width: min(100%, 800px);
+    margin: 0 auto;
     font-size: 2rem;
   }
 
   figure {
+    width: calc((100% - (30px * 2)) / 3);
     border: 1px solid #ccc;
     margin-bottom: 40px;
+    animation: smallPic forwards 1s;
   }
 
   .date {
+    width: min(100%, 800px);
+    margin: 0 auto;
     display: inline-block;
     margin-bottom: 40px;
     padding: 10px 30px;
@@ -89,6 +103,9 @@ export default {
   }
 
   .post {
+    width: min(100%, 800px);
+    margin: 0 auto;
+
     @include tab {
       font-size: 1.4rem;
     }
@@ -96,6 +113,15 @@ export default {
     p {
       line-height: 2 !important;
     }
+  }
+}
+@keyframes smallPic {
+  0% {
+
+  }
+  100% {
+    width: min(100%, 800px);
+    margin: 0 auto;
   }
 }
 </style>

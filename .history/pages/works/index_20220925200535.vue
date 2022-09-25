@@ -16,6 +16,9 @@
               <nuxt-link :to="`/works/${content.id}`">
                 <img :src="content.image.url">
               </nuxt-link>
+              <transition name="animePic">
+                <img v-if="show" :src="content.image.url" class="dammy">
+              </transition>
             </figure>
             <p class="date">{{ content.date }}</p>
             <h3>{{ content.title }}</h3>
@@ -34,6 +37,9 @@ export default {
   transition: {
     name: "animePic",
   },
+  data: {
+    show: true
+  },
   async asyncData() {
     const { data } = await axios.get(
       'https://yushi.microcms.io/api/v1/works?limit=30',
@@ -51,11 +57,19 @@ export default {
 <style lang="scss" scoped>
 .animePic-enter-active,
 .animePic-leave-active {
-  transition: opacity .5s;
+  animation: fixed .5s forwards;
+  position: fixed;
 }
-
-.animePic-enter,
-.animePic-leave-to {
+@keyframes fixed {
+  0% {
+  }
+  100% {
+    top: 50%;
+    left: 50%;
+    
+  }
+}
+.animePic-enter, .animePic-leave-to {
   opacity: 0;
 }
 
@@ -65,11 +79,10 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
   object-fit: cover;
 }
 
- .lowMv {
+.animePic-enter-active .lowMv {
   background: url(../../static/low_mv.jpg)center center / cover;
   @include mb100;
   @include p100;

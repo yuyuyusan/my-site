@@ -162,7 +162,7 @@ export default {
           title: "CSS",
           level: "8",
           num: "2",
-          desc: "自分の形は、BEM+少しFLOCSSでdartscssを使用しています。モダンなcssはcolissを毎週見ているので、ある程度取り入れています。svgに関しては、svg spriteとアニメーション少し触ったことがある程度です。"
+          desc: "自分の形は、FLOCSS+自分流でdartscssを使用しています。モダンなcssはcolissを毎週見ているので、ある程度取り入れています。svgに関しては、svg spriteとアニメーション少し触ったことがある程度です。"
         },
         {
           icon: "../icon-js.svg",

@@ -46,6 +46,9 @@ export default {
 .animePic-enter-active {
   transition: opacity 1s;
 }
+.animePic-enter.picActive {
+  width: 400px;
+}
 
 .singleContent {
   @include mb100;

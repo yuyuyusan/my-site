@@ -34,6 +34,9 @@ export default {
   transition: {
     name: "animePic",
   },
+  data: {
+    show: true
+  },
   async asyncData() {
     const { data } = await axios.get(
       'https://yushi.microcms.io/api/v1/works?limit=30',
@@ -51,7 +54,7 @@ export default {
 <style lang="scss" scoped>
 .animePic-enter-active,
 .animePic-leave-active {
-  transition: opacity .5s;
+  transition: opacity 10s;
 }
 
 .animePic-enter,
@@ -69,7 +72,7 @@ export default {
   object-fit: cover;
 }
 
- .lowMv {
+.animePic-enter-active .lowMv {
   background: url(../../static/low_mv.jpg)center center / cover;
   @include mb100;
   @include p100;

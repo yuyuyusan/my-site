@@ -10,7 +10,7 @@
 
     <section class="infoList">
       <div class="container">
-        <ul class="list">
+        <transition name="animePic" class="list" tag="ul">
           <li class="listItem" v-for="content in contents" :key="content.id">
             <figure class="listItem__pic" @click="show = !show">
               <nuxt-link :to="`/works/${content.id}`">
@@ -20,7 +20,7 @@
             <p class="date">{{ content.date }}</p>
             <h3>{{ content.title }}</h3>
           </li>
-        </ul>
+        </transition>
       </div>
     </section>
   </main>
@@ -33,6 +33,9 @@ export default {
   layout: 'low',
   transition: {
     name: "animePic",
+  },
+  data: {
+    show: true
   },
   async asyncData() {
     const { data } = await axios.get(
@@ -51,7 +54,7 @@ export default {
 <style lang="scss" scoped>
 .animePic-enter-active,
 .animePic-leave-active {
-  transition: opacity .5s;
+  transition: opacity 10s;
 }
 
 .animePic-enter,
@@ -69,7 +72,7 @@ export default {
   object-fit: cover;
 }
 
- .lowMv {
+.animePic-enter-active .lowMv {
   background: url(../../static/low_mv.jpg)center center / cover;
   @include mb100;
   @include p100;

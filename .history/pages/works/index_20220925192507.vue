@@ -12,11 +12,13 @@
       <div class="container">
         <ul class="list">
           <li class="listItem" v-for="content in contents" :key="content.id">
-            <figure class="listItem__pic" @click="show = !show">
-              <nuxt-link :to="`/works/${content.id}`">
-                <img :src="content.image.url">
-              </nuxt-link>
-            </figure>
+            <transition name="animePic">
+              <figure class="listItem__pic">
+                <nuxt-link :to="`/works/${content.id}`">
+                  <img :src="content.image.url">
+                </nuxt-link>
+              </figure>
+            </transition>
             <p class="date">{{ content.date }}</p>
             <h3>{{ content.title }}</h3>
           </li>
@@ -32,7 +34,12 @@ import axios from 'axios'
 export default {
   layout: 'low',
   transition: {
-    name: "animePic",
+    name:"animePic",
+    mode: 'out-in',
+  },
+  transition (to, from) {
+    if (!from) return 'slide-left'
+    return +to.query.page < +from.query.page ? 'slide-right' : 'slide-left'
   },
   async asyncData() {
     const { data } = await axios.get(
@@ -49,27 +56,43 @@ export default {
 
 
 <style lang="scss" scoped>
-.animePic-enter-active,
+@keyframes animePic {
+  0% {}
+
+  100% {
+    width: 400px;
+    height: 100vh;
+  }
+}
+
 .animePic-leave-active {
-  transition: opacity .5s;
+  transition: 0.8s;
 }
 
-.animePic-enter,
-.animePic-leave-to {
-  opacity: 0;
+.animePic-leave-active .bnr::before {
+  animation: animePic 0.8s 0s ease-in-out forwards;
 }
 
-.dammy {
-  position: absolute;
-  left: 0;
-  top: 0;
+.bnr {
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+}
+
+.bnr::before {
+  content: "";
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
   z-index: -1;
-  object-fit: cover;
 }
 
- .lowMv {
+.lowMv {
   background: url(../../static/low_mv.jpg)center center / cover;
   @include mb100;
   @include p100;
@@ -111,7 +134,6 @@ export default {
       &__pic {
         border: 1px solid #ccc;
         margin-bottom: 20px;
-        position: relative;
 
         img {
           aspect-ratio: 3/2;

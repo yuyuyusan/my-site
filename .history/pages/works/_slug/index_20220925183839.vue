@@ -1,17 +1,21 @@
 
 <template>
   <main class="singleMain">
+    <section class="lowMv">
+      <h1>
+        <span class="en">INFORMATION</span>
+      </h1>
+    </section>
+
     <section class="singleContent">
       <div class="container">
         <div class="inner">
-          <transition name="animePic">
-            <figure class="picActive">
-              <a :href="url" target="_blank" rel="noopenner" class="">
-                <img :src="image.url" alt="">
-              </a>
-            </figure>
-          </transition>
           <h2 class="title">{{ title }}</h2>
+          <figure>
+            <a :href="url" target="_blank" rel="noopenner" class="">
+              <img :src="image.url" alt="">
+            </a>
+          </figure>
           <p class="date">{{ date }}</p>
           <div class="post" v-html="detail"></div>
         </div>
@@ -39,12 +43,16 @@ export default {
 
 
 <style lang="scss" scoped>
-.animePic-enter {
-  opacity: 0;
-}
+.lowMv {
+  background: url(../../../static/low_mv.jpg)center center / cover;
+  @include mb100;
+  @include p100;
 
-.animePic-enter-active {
-  transition: opacity 1s;
+  h1 {
+    @include contentWidth-s;
+    font-size: 3.6rem;
+    text-align: center;
+  }
 }
 
 .singleContent {
