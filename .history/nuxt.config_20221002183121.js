@@ -31,10 +31,10 @@ export default {
       rel: 'icon',
       type: 'image/x-icon',
       href: '/yu.jpg',
+      href: 'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js',
     }],
     script: [{
-      src: 'common.js',
-      src: 'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js',
+      src: 'common.js'
     }],
   },
   // loading: '~/components/Loading.vue',

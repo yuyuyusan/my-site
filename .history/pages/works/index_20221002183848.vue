@@ -10,17 +10,17 @@
 
     <section class="worksList">
       <div class="container">
-        <transition-group tag="ul" name="list" class="list">
+        <ul class="list">
           <li class="listItem" v-for="content in contents" :key="content.id">
-            <figure class="listItem__pic" @click="show = !show">
+            <figure class="listItem__pic">
               <nuxt-link :to="`/works/${content.id}`">
-                <img :src="content.image.url">
+                <img :src="content.image.url" :style="styleObj" class="tmp" alt="">
               </nuxt-link>
             </figure>
             <p class="date">{{ content.date }}</p>
             <h3>{{ content.title }}</h3>
           </li>
-        </transition-group>
+        </ul>
       </div>
     </section>
   </main>
@@ -41,19 +41,12 @@ export default {
     )
     return data
   },
-  transition: {
-    name: "animePic",
-  },
-  data: function () {
-    return {
-      show: true,
-    };
-  },
 }
 </script>
 
 
 <style lang="scss" scoped>
+/* enter-active -> enter-to の順番で書くのが大事*/
 .animePic-enter-active {
   transition: opacity .5s;
   opacity: 0;
@@ -63,6 +56,7 @@ export default {
   opacity: 1;
 }
 
+/* leave-active -> leave-to の順番で書くのが大事*/
 .animePic-leave-active {
   transition: opacity .5s;
   opacity: 1;

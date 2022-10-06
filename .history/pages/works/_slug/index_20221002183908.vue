@@ -1,22 +1,20 @@
 
 <template>
   <main class="singleMain">
-    <transition name="animePic">
-      <section class="singleContent">
-        <div class="container">
-          <div class="inner">
-            <figure class="picActive">
-              <a :href="url" target="_blank" rel="noopenner" class="">
-                <img :src="image.url" alt="">
-              </a>
-            </figure>
-            <h2 class="title">{{ title }}</h2>
-            <p class="date">{{ date }}</p>
-            <div class="post" v-html="detail"></div>
-          </div>
+    <section class="singleContent">
+      <div class="container">
+        <div class="inner">
+          <figure class="picActive">
+            <a :href="url" target="_blank" rel="noopenner" class="">
+              <img :src="image.url" alt="">
+            </a>
+          </figure>
+          <h2 class="title">{{ title }}</h2>
+          <p class="date">{{ date }}</p>
+          <div class="post" v-html="detail"></div>
         </div>
-      </section>
-    </transition>
+      </div>
+    </section>
   </main>
 </template>
 
@@ -33,29 +31,13 @@ export default {
       }
     )
     return data
-  }
+  },
+  
 }
 </script>
 
 
 <style lang="scss" scoped>
-.animePic-enter-active {
-  transition: opacity .5s;
-  opacity: 0;
-}
-
-.animePic-enter-to {
-  opacity: 1;
-}
-
-.animePic-leave-active {
-  transition: opacity .5s;
-  opacity: 1;
-}
-
-.animePic-leave-to {
-  opacity: 0;
-}
 
 
 .singleContent {

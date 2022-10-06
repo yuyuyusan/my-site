@@ -10,17 +10,17 @@
 
     <section class="worksList">
       <div class="container">
-        <transition-group tag="ul" name="list" class="list">
+        <ul class="list">
           <li class="listItem" v-for="content in contents" :key="content.id">
-            <figure class="listItem__pic" @click="show = !show">
+            <figure class="listItem__pic">
               <nuxt-link :to="`/works/${content.id}`">
-                <img :src="content.image.url">
+                <img :src="content.image.url" :style="styleObj" class="tmp" alt="">
               </nuxt-link>
             </figure>
             <p class="date">{{ content.date }}</p>
             <h3>{{ content.title }}</h3>
           </li>
-        </transition-group>
+        </ul>
       </div>
     </section>
   </main>
@@ -41,19 +41,76 @@ export default {
     )
     return data
   },
-  transition: {
-    name: "animePic",
+  methods: {
+    layoutImageMove({ node, styleObj }) {
+      anime({
+        targets: this.styleObj,
+        top: styleObj.top,
+        left: styleObj.left,
+        width: styleObj.width,
+        easing: 'easeInOutQuart',
+        duration: 800,
+        complete: () => {
+          node.style.opacity = 1;
+          this.styleObj = {
+            top: '',
+            left: '',
+            width: ''
+          }
+        }
+      });
+    }
   },
-  data: function () {
-    return {
-      show: true,
-    };
-  },
+  beforeRouteLeave(to, from, next) {
+    // クリックした記事の情報を取得
+    const component = this.$refs.item.find((x) => {
+      return x.item.id === parseInt(to.params.id);
+    });
+
+    const node = component.$refs.img;
+
+    const listRect = this.$refs.list.getBoundingClientRect();
+    const itemRect = node.getBoundingClientRect();
+
+    // 遷移前の画像の位置を取得
+    const src = this.base + component.item.src;
+    const styleObj = {
+      top: `${itemRect.top - listRect.top}px`,
+      left: `${itemRect.left - listRect.left}px`,
+      width: `${node.clientWidth}px`
+    }
+
+    node.style.opacity = 0;
+
+    // ダミー画像に位置と画像のURLを渡す
+    this.$nuxt.$emit('layoutImage', {
+      src: src,
+      styleObj: styleObj
+    });
+
+    // ページを上部に移動
+    anime({
+      targets: '#__nuxt',
+      scrollTop: 0,
+      easing: 'easeInOutQuart',
+      duration: 800
+    });
+
+    // ページの不透明度を0にアニメーション
+    anime({
+      targets: this.$refs.list,
+      opacity: [1, 0],
+      easing: 'easeInOutQuart',
+      duration: 800,
+      complete: () => next()
+    });
+  }
 }
 </script>
 
 
 <style lang="scss" scoped>
+/* enter-active -> enter-to の順番で書くのが大事*/
 .animePic-enter-active {
   transition: opacity .5s;
   opacity: 0;
@@ -63,6 +120,7 @@ export default {
   opacity: 1;
 }
 
+/* leave-active -> leave-to の順番で書くのが大事*/
 .animePic-leave-active {
   transition: opacity .5s;
   opacity: 1;

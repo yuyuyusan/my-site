@@ -62,7 +62,7 @@
             <div class="wrap">
               <p>
                 <span>SKILLS</span>
-                現在、経験年数1年5ヶ月です。レスポンシブデザインはPCのデザインが基本上がってきて、自分で考えて作成しているので対応できます。<br>
+                現在、経験年数1年4ヶ月です。レスポンシブデザインはPCのデザインが基本上がってきて、自分で考えて作成しているので対応できます。<br>
                 初めてのことに関しては、書いてあるものを、実装しようとしているものを、調べながら読み解く流れです。<br>
                 基本的には調べて多少時間はかかったとしても完成はできます。<br>
                 ※最悪妥協して非効率なやり方でも完成させます。<br>
@@ -75,9 +75,7 @@
                 <figure class="listItem__pic">
                   <img :src="skill.icon" />
                 </figure>
-                <progress class="listItem__bar" min="0" max="10" :value="skill.level">
-                </progress>
-                <span class="skillActive">{{ skill.level }}/10</span>
+                <progress class="listItem__bar" min="0" max="10" :value="skill.level"></progress>
               </li>
             </ul>
 
@@ -142,12 +140,12 @@ export default {
         {
           boxClass: "innerTop",
           title: "略歴",
-          desc: "2020年4月より勉強開始。2021年4月よりWEB業界、業務未経験でWeb制作会社入社。"
+          desc: "2020年4月より勉強開始。2021年4月より業務未経験でWeb制作会社入社。"
         },
         {
           boxClass: "innerBottom",
           title: "趣味",
-          desc: "スノーボード、散歩、漫画、昔はアニメ鑑賞でしたが、現在は仕事の影響でアニメの映像を鑑賞と言葉を聴くことです。"
+          desc: "スノーボード、散歩、漫画、昔はアニメ鑑賞でしたが、現在はアニメの映像を鑑賞と言葉を聴くこと。"
         }
       ],
       // スキル
@@ -157,33 +155,33 @@ export default {
           title: "HTML",
           level: "8",
           num: "1",
-          desc: "SEOを意識しながらのコーディングができます。htaccessなども修正して、ページ速度改善なども可能です。pugなどは使用したことがまだありません。"
+          desc: "SEOを意識しながらのコーディングができます。多少htaccessなども修正して、ページ速度を速くすることも可能です。pugなどは使用したことがまだありません。"
         },
         {
           icon: "../icon-css.svg",
           title: "CSS",
           level: "8",
           num: "2",
-          desc: "自分の形は、FLOCSS+自分流でdartscssを使用しています。モダンなcssはcolissを毎週見ているので、取り入れています。svgに関しては、svg spriteを使用しており、アニメーションは業務では、あまり使用する機会がなく休日に勉強しています。"
+          desc: "自分の形は、FLOCSS+自分流でdartscssを使用しています。モダンなcssはcolissを毎週見ているので、ある程度取り入れています。svgに関しては、svg spriteとアニメーション少し触ったことがある程度です。"
         },
         {
           icon: "../icon-js.svg",
           title: "Vanilla js",
           level: "5",
           num: "3",
-          desc: "vanilla jsの基本の形は抑えていますが、業務でもあまり使用しないため、開発などフルスクラッチでの経験はありません。案件で使用する場面では、あえて新しい事を調べて少しずつ勉強しています。現在webGL、Intersection Observer、beforeRouteLeave（ナビゲーションゲート）を次は学ぼうと考えています。"
+          desc: "vanilla jsの基本の形は抑えていますが、業務でもあまり使用しないため、開発などフルスクラッチでの経験はありません。案件で使う場面では時間がありそうなときは、あえて新しい事を調べて少しずつ勉強しています。webGLとIntersection Observerを次は学ぼうと考えています。"
         },
         {
           icon: "../icon-php.svg",
           title: "PHP",
           level: "5",
           num: "4",
-          desc: "JavaScriptと同じく、基本の形は抑えていますが、経験業務はWordPressと修正案件での自作フォーム(smartyを使用)のみです。ほとんどWordpressがメインです。今後は自作フォームなどの理解を深めて行こうと思っています。"
+          desc: "JavaScriptと同じく、基本の形は抑えていますが、経験業務はWordPressと修正案件での自作フォーム(smartyを使用していました)のみです。ほとんどWordpressがメインです。今後は自作フォームなどの理解を深めて行こうと思っています。"
         },
         {
           icon: "../icon-jquery.svg",
           title: "jQuery",
-          level: "6",
+          level: "7",
           num: "5",
           desc: "初めての学習がjQueryでしたので、vanilla jsよりは理解が深いです。ただ業務を重ねていくうちに脱jQueryしようと思い始め基本的には使わない方向性で制作に取り組んでいます。"
         },
@@ -192,21 +190,21 @@ export default {
           title: "TypeScript",
           level: "1",
           num: "6",
-          desc: "まだ勉強しておらず、JavaScriptとの並行して勉強していくのか、どうするのかで止まっています。"
+          desc: "全くわかりません。JavaScriptとの並行して勉強していくのか、どうするのかで止まっています。"
         },
         {
           icon: "../icon-wp.svg",
           title: "WordPress",
           level: "8",
           num: "7",
-          desc: "案件がWordPressが多いため、オリジナルテーマを0から作成できます。1回だけTCDのテーマから制作がありましたが、オリジナルテーマのほうがやりやすいです。がっちりめのECサイトの経験はないのですが、機能少なめなECサイトの制作は業務で経験しました。"
+          desc: "案件がWordPressが多いため、ある程度の知識はあります。1回だけTCDのテーマから制作がありましたが、オリジナルテーマのほうがやりやすいです。がっちりめのECサイトの経験はないのですが、機能少なめなECサイトの制作は業務で経験しました。"
         },
         {
           icon: "../icon-vue.svg",
           title: "Vue.js",
           level: "3",
           num: "8",
-          desc: "このサイトで初めて触りました。かなり使いやすい印象で、今後も使用していこうと考え、業務でも取り入れるようにしています。"
+          desc: "このサイトで初めて触りました。かなり使いやすい印象で、今後も使っていきたいです。"
         },
         {
           icon: "../icon-nuxt.svg",
@@ -220,7 +218,7 @@ export default {
           title: "git",
           level: "4",
           num: "10",
-          desc: "会社でgitを使用していないため、共同で使用したことがありません。個人で管理していますが、基本操作は理解しています。"
+          desc: "会社でgitを使用していないため、共同で使用したことがありません。個人で管理できるレベルです。"
         }
       ],
     }
@@ -407,206 +405,188 @@ export default {
 
   .container {
     @include contentWidth-s;
-  }
-}
 
-.aboutSkill .container {
-  h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    line-height: 1;
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      line-height: 1;
 
-    .en {
-      font-size: 2.4rem;
-      display: block;
-    }
-
-    .jp {
-      font-size: 1.4rem;
-    }
-  }
-}
-
-.aboutSkill .container .contentButton {
-  width: min(100%, 600px);
-  margin: 0 auto 60px;
-  display: flex;
-  gap: 30px;
-
-  li {
-    width: 50%;
-    padding: 30px 0;
-    text-align: center;
-    border: 1px solid #000;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  .clickActive {
-    background: $blue;
-    color: #fff;
-    border: none;
-  }
-}
-
-.aboutSkill .container .content {
-  &Item {
-    .wrap {
-      position: relative;
-    }
-  }
-}
-
-.aboutSkill .container .content .wrap p {
-  width: min(100%, 600px);
-  margin: 0 auto 60px;
-  line-height: 2;
-  letter-spacing: 1px;
-
-  @include tab {
-    font-size: 1.4rem;
-    line-height: 1.6;
-  }
-
-  span {
-    font-family: $f-roboto;
-    font-weight: bold;
-    font-size: 20rem;
-    color: rgba(0, 0, 0, .05);
-    line-height: 1;
-    position: absolute;
-    top: -40px;
-    left: 0;
-    letter-spacing: 0;
-
-    @include tab {
-      font-size: 10rem;
-
-      @include sp {
-        font-size: 6rem;
+      .en {
+        font-size: 2.4rem;
+        display: block;
       }
-    }
-  }
-}
 
-.aboutSkill .container .content .list {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-
-  &Item {
-    width: calc((100% - (40px * 2)) / 3);
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    position: relative;
-
-    @include tab {
-      width: calc((100% - (40px * 1)) / 2);
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:hover .skillActive {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .skillActive {
-      opacity: 0;
-      visibility: hidden;
-      font-size: 1.2rem;
-      font-family: $f-roboto;
-      font-weight: 500;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
-  }
-}
-
-.aboutSkill .container .content .contentItem .listItem {
-  &__pic {
-    width: 60px;
-  }
-
-  &__bar {
-    width: calc(100% - 60px);
-  }
-
-  progress {
-    -webkit-appearance: none;
-  }
-
-  ::-webkit-progress-bar {
-    background-color: #ccc;
-  }
-
-  ::-webkit-progress-value {
-    background-color: $skyBlue;
-  }
-
-  &__desc {
-    width: 100%;
-    height: 100vh;
-    padding: 20px;
-    background: rgba(0, 0, 0, .5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
-}
-
-.aboutSkill .container .content .contentItem .bg {
-  width: min(100% - 40px, 560px);
-  height: 60%;
-  padding: 40px;
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  background: $lightBlue;
-
-  h4 {
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid $blue;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    svg {
-      width: 16px;
-    }
-  }
-
-  .inner {
-    height: 100%;
-    padding-bottom: 40px;
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-
-    figure {
-      width: 140px;
-
-      img {
-        aspect-ratio: 1/1;
-        width: 100%;
-        height: 100%;
+      .jp {
+        font-size: 1.4rem;
       }
     }
 
-    p {
-      width: calc(100% - 140px);
-      height: 100%;
-      line-height: 2;
-      font-size: 1.4rem;
-      overflow-y: scroll;
+    progress {
+      -webkit-appearance: none;
+    }
+
+    ::-webkit-progress-bar {
+      background-color: #ccc;
+    }
+
+    ::-webkit-progress-value {
+      background-color: $skyBlue;
+    }
+
+    .contentButton {
+      width: min(100%, 600px);
+      margin: 0 auto 60px;
+      display: flex;
+      gap: 30px;
+
+      li {
+        width: 50%;
+        padding: 30px 0;
+        text-align: center;
+        border: 1px solid #000;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .clickActive {
+        background: $blue;
+        color: #fff;
+        border: none;
+      }
+    }
+
+    .content {
+      &Item {
+        .wrap {
+          position: relative;
+
+          p {
+            width: min(100%, 600px);
+            margin: 0 auto 60px;
+            line-height: 2;
+            letter-spacing: 1px;
+
+            @include tab {
+              font-size: 1.4rem;
+              line-height: 1.6;
+            }
+
+            span {
+              font-family: $f-roboto;
+              font-weight: bold;
+              font-size: 20rem;
+              color: rgba(0, 0, 0, .05);
+              line-height: 1;
+              position: absolute;
+              top: -40px;
+              left: 0;
+              letter-spacing: 0;
+
+              @include tab {
+                font-size: 10rem;
+
+                @include sp {
+                  font-size: 6rem;
+                }
+              }
+            }
+          }
+        }
+
+        .list {
+          display: flex;
+          gap: 40px;
+          flex-wrap: wrap;
+
+          &Item {
+            width: calc((100% - (40px * 2)) / 3);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            position: relative;
+
+            @include tab {
+              width: calc((100% - (40px * 1)) / 2);
+            }
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            &__pic {
+              width: 60px;
+            }
+
+            &__bar {
+              width: calc(100% - 60px);
+            }
+
+            &__desc {
+              width: 100%;
+              height: 100vh;
+              padding: 20px;
+              background: rgba(0, 0, 0, .5);
+              position: fixed;
+              top: 0;
+              left: 0;
+              z-index: 1;
+
+
+              .bg {
+                width: min(100% - 40px, 560px);
+                height: 60%;
+                padding: 40px;
+                position: absolute;
+                inset: 0;
+                margin: auto;
+                background: $lightBlue;
+
+                h4 {
+                  margin-bottom: 15px;
+                  padding-bottom: 5px;
+                  border-bottom: 1px solid $blue;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+
+                  svg {
+                    width: 16px;
+                  }
+                }
+
+                .inner {
+                  height: 100%;
+                  padding-bottom: 40px;
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 30px;
+
+                  figure {
+                    width: 140px;
+
+                    img {
+                      aspect-ratio: 1/1;
+                      width: 100%;
+                      height: 100%;
+                    }
+                  }
+
+                  p {
+                    width: calc(100% - 140px);
+                    height: 100%;
+                    line-height: 2;
+                    font-size: 1.4rem;
+                    overflow-y: scroll;
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

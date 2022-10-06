@@ -46,7 +46,7 @@ export default {
   },
   data: function () {
     return {
-      show: true,
+      show: false,
     };
   },
 }
@@ -54,8 +54,9 @@ export default {
 
 
 <style lang="scss" scoped>
+/* enter-active -> enter-to の順番で書くのが大事*/
 .animePic-enter-active {
-  transition: opacity .5s;
+  transition: opacity 3s;
   opacity: 0;
 }
 
@@ -63,8 +64,9 @@ export default {
   opacity: 1;
 }
 
+/* leave-active -> leave-to の順番で書くのが大事*/
 .animePic-leave-active {
-  transition: opacity .5s;
+  transition: opacity 3s;
   opacity: 1;
 }
 

@@ -76,8 +76,8 @@
                   <img :src="skill.icon" />
                 </figure>
                 <progress class="listItem__bar" min="0" max="10" :value="skill.level">
+                  <span class="skillActive">{{ skill.level }}/10</span>
                 </progress>
-                <span class="skillActive">{{ skill.level }}/10</span>
               </li>
             </ul>
 
@@ -510,6 +510,20 @@ export default {
     &:hover {
       cursor: pointer;
     }
+  }
+}
+
+.aboutSkill .container .content .list .listItem {
+  &__pic {
+    width: 60px;
+  }
+
+  &__bar {
+    width: calc(100% - 60px);
+  }
+
+  progress {
+    -webkit-appearance: none;
 
     &:hover .skillActive {
       opacity: 1;
@@ -522,24 +536,7 @@ export default {
       font-size: 1.2rem;
       font-family: $f-roboto;
       font-weight: 500;
-      position: absolute;
-      bottom: 0;
-      right: 0;
     }
-  }
-}
-
-.aboutSkill .container .content .contentItem .listItem {
-  &__pic {
-    width: 60px;
-  }
-
-  &__bar {
-    width: calc(100% - 60px);
-  }
-
-  progress {
-    -webkit-appearance: none;
   }
 
   ::-webkit-progress-bar {
@@ -562,7 +559,7 @@ export default {
   }
 }
 
-.aboutSkill .container .content .contentItem .bg {
+.aboutSkill .container .content .list .listItem .bg {
   width: min(100% - 40px, 560px);
   height: 60%;
   padding: 40px;
@@ -607,6 +604,7 @@ export default {
       line-height: 2;
       font-size: 1.4rem;
       overflow-y: scroll;
+
     }
   }
 }

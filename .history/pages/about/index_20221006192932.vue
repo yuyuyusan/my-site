@@ -75,8 +75,7 @@
                 <figure class="listItem__pic">
                   <img :src="skill.icon" />
                 </figure>
-                <progress class="listItem__bar" min="0" max="10" :value="skill.level">
-                </progress>
+                <progress class="listItem__bar" min="0" max="10" :value="skill.level"></progress>
                 <span class="skillActive">{{ skill.level }}/10</span>
               </li>
             </ul>
@@ -407,206 +406,196 @@ export default {
 
   .container {
     @include contentWidth-s;
-  }
-}
 
-.aboutSkill .container {
-  h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    line-height: 1;
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      line-height: 1;
 
-    .en {
-      font-size: 2.4rem;
-      display: block;
-    }
+      .en {
+        font-size: 2.4rem;
+        display: block;
+      }
 
-    .jp {
-      font-size: 1.4rem;
-    }
-  }
-}
-
-.aboutSkill .container .contentButton {
-  width: min(100%, 600px);
-  margin: 0 auto 60px;
-  display: flex;
-  gap: 30px;
-
-  li {
-    width: 50%;
-    padding: 30px 0;
-    text-align: center;
-    border: 1px solid #000;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  .clickActive {
-    background: $blue;
-    color: #fff;
-    border: none;
-  }
-}
-
-.aboutSkill .container .content {
-  &Item {
-    .wrap {
-      position: relative;
-    }
-  }
-}
-
-.aboutSkill .container .content .wrap p {
-  width: min(100%, 600px);
-  margin: 0 auto 60px;
-  line-height: 2;
-  letter-spacing: 1px;
-
-  @include tab {
-    font-size: 1.4rem;
-    line-height: 1.6;
-  }
-
-  span {
-    font-family: $f-roboto;
-    font-weight: bold;
-    font-size: 20rem;
-    color: rgba(0, 0, 0, .05);
-    line-height: 1;
-    position: absolute;
-    top: -40px;
-    left: 0;
-    letter-spacing: 0;
-
-    @include tab {
-      font-size: 10rem;
-
-      @include sp {
-        font-size: 6rem;
+      .jp {
+        font-size: 1.4rem;
       }
     }
-  }
-}
 
-.aboutSkill .container .content .list {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-
-  &Item {
-    width: calc((100% - (40px * 2)) / 3);
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    position: relative;
-
-    @include tab {
-      width: calc((100% - (40px * 1)) / 2);
+    progress {
+      -webkit-appearance: none;
+      :hover .skillActive{
+        opacity: 1;
+        visibility: visible;
+      }
     }
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:hover .skillActive {
-      opacity: 1;
-      visibility: visible;
-    }
-
     .skillActive {
       opacity: 0;
       visibility: hidden;
-      font-size: 1.2rem;
-      font-family: $f-roboto;
-      font-weight: 500;
-      position: absolute;
-      bottom: 0;
-      right: 0;
     }
-  }
-}
 
-.aboutSkill .container .content .contentItem .listItem {
-  &__pic {
-    width: 60px;
-  }
-
-  &__bar {
-    width: calc(100% - 60px);
-  }
-
-  progress {
-    -webkit-appearance: none;
-  }
-
-  ::-webkit-progress-bar {
-    background-color: #ccc;
-  }
-
-  ::-webkit-progress-value {
-    background-color: $skyBlue;
-  }
-
-  &__desc {
-    width: 100%;
-    height: 100vh;
-    padding: 20px;
-    background: rgba(0, 0, 0, .5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
-}
-
-.aboutSkill .container .content .contentItem .bg {
-  width: min(100% - 40px, 560px);
-  height: 60%;
-  padding: 40px;
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  background: $lightBlue;
-
-  h4 {
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid $blue;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    svg {
-      width: 16px;
+    ::-webkit-progress-bar {
+      background-color: #ccc;
     }
-  }
 
-  .inner {
-    height: 100%;
-    padding-bottom: 40px;
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
+    ::-webkit-progress-value {
+      background-color: $skyBlue;
+    }
 
-    figure {
-      width: 140px;
+    .contentButton {
+      width: min(100%, 600px);
+      margin: 0 auto 60px;
+      display: flex;
+      gap: 30px;
 
-      img {
-        aspect-ratio: 1/1;
-        width: 100%;
-        height: 100%;
+      li {
+        width: 50%;
+        padding: 30px 0;
+        text-align: center;
+        border: 1px solid #000;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .clickActive {
+        background: $blue;
+        color: #fff;
+        border: none;
       }
     }
 
-    p {
-      width: calc(100% - 140px);
-      height: 100%;
-      line-height: 2;
-      font-size: 1.4rem;
-      overflow-y: scroll;
+    .content {
+      &Item {
+        .wrap {
+          position: relative;
+
+          p {
+            width: min(100%, 600px);
+            margin: 0 auto 60px;
+            line-height: 2;
+            letter-spacing: 1px;
+
+            @include tab {
+              font-size: 1.4rem;
+              line-height: 1.6;
+            }
+
+            span {
+              font-family: $f-roboto;
+              font-weight: bold;
+              font-size: 20rem;
+              color: rgba(0, 0, 0, .05);
+              line-height: 1;
+              position: absolute;
+              top: -40px;
+              left: 0;
+              letter-spacing: 0;
+
+              @include tab {
+                font-size: 10rem;
+
+                @include sp {
+                  font-size: 6rem;
+                }
+              }
+            }
+          }
+        }
+
+        .list {
+          display: flex;
+          gap: 40px;
+          flex-wrap: wrap;
+
+          &Item {
+            width: calc((100% - (40px * 2)) / 3);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            position: relative;
+
+            @include tab {
+              width: calc((100% - (40px * 1)) / 2);
+            }
+
+            &:hover {
+              cursor: pointer;
+            }
+
+            &__pic {
+              width: 60px;
+            }
+
+            &__bar {
+              width: calc(100% - 60px);
+            }
+
+            &__desc {
+              width: 100%;
+              height: 100vh;
+              padding: 20px;
+              background: rgba(0, 0, 0, .5);
+              position: fixed;
+              top: 0;
+              left: 0;
+              z-index: 1;
+
+
+              .bg {
+                width: min(100% - 40px, 560px);
+                height: 60%;
+                padding: 40px;
+                position: absolute;
+                inset: 0;
+                margin: auto;
+                background: $lightBlue;
+
+                h4 {
+                  margin-bottom: 15px;
+                  padding-bottom: 5px;
+                  border-bottom: 1px solid $blue;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+
+                  svg {
+                    width: 16px;
+                  }
+                }
+
+                .inner {
+                  height: 100%;
+                  padding-bottom: 40px;
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 30px;
+
+                  figure {
+                    width: 140px;
+
+                    img {
+                      aspect-ratio: 1/1;
+                      width: 100%;
+                      height: 100%;
+                    }
+                  }
+
+                  p {
+                    width: calc(100% - 140px);
+                    height: 100%;
+                    line-height: 2;
+                    font-size: 1.4rem;
+                    overflow-y: scroll;
+
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

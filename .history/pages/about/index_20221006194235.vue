@@ -455,37 +455,37 @@ export default {
   &Item {
     .wrap {
       position: relative;
-    }
-  }
-}
 
-.aboutSkill .container .content .wrap p {
-  width: min(100%, 600px);
-  margin: 0 auto 60px;
-  line-height: 2;
-  letter-spacing: 1px;
+      p {
+        width: min(100%, 600px);
+        margin: 0 auto 60px;
+        line-height: 2;
+        letter-spacing: 1px;
 
-  @include tab {
-    font-size: 1.4rem;
-    line-height: 1.6;
-  }
+        @include tab {
+          font-size: 1.4rem;
+          line-height: 1.6;
+        }
 
-  span {
-    font-family: $f-roboto;
-    font-weight: bold;
-    font-size: 20rem;
-    color: rgba(0, 0, 0, .05);
-    line-height: 1;
-    position: absolute;
-    top: -40px;
-    left: 0;
-    letter-spacing: 0;
+        span {
+          font-family: $f-roboto;
+          font-weight: bold;
+          font-size: 20rem;
+          color: rgba(0, 0, 0, .05);
+          line-height: 1;
+          position: absolute;
+          top: -40px;
+          left: 0;
+          letter-spacing: 0;
 
-    @include tab {
-      font-size: 10rem;
+          @include tab {
+            font-size: 10rem;
 
-      @include sp {
-        font-size: 6rem;
+            @include sp {
+              font-size: 6rem;
+            }
+          }
+        }
       }
     }
   }
@@ -522,14 +522,11 @@ export default {
       font-size: 1.2rem;
       font-family: $f-roboto;
       font-weight: 500;
-      position: absolute;
-      bottom: 0;
-      right: 0;
     }
   }
 }
 
-.aboutSkill .container .content .contentItem .listItem {
+.aboutSkill .container .content .list .listItem {
   &__pic {
     width: 60px;
   }
@@ -562,7 +559,7 @@ export default {
   }
 }
 
-.aboutSkill .container .content .contentItem .bg {
+.aboutSkill .container .content .list .listItem .bg {
   width: min(100% - 40px, 560px);
   height: 60%;
   padding: 40px;
@@ -607,6 +604,7 @@ export default {
       line-height: 2;
       font-size: 1.4rem;
       overflow-y: scroll;
+
     }
   }
 }

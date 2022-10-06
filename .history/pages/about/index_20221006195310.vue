@@ -524,7 +524,8 @@ export default {
       font-weight: 500;
       position: absolute;
       bottom: 0;
-      right: 0;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }

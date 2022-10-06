@@ -12,7 +12,7 @@
       <div class="container">
         <transition-group tag="ul" name="list" class="list">
           <li class="listItem" v-for="content in contents" :key="content.id">
-            <figure class="listItem__pic" @click="show = !show">
+            <figure class="listItem__pic" @click="btnclick">
               <nuxt-link :to="`/works/${content.id}`">
                 <img :src="content.image.url">
               </nuxt-link>
@@ -31,6 +31,9 @@ import axios from 'axios'
 
 export default {
   layout: 'low',
+  transition: {
+    name: "animePic",
+  },
   async asyncData() {
     const { data } = await axios.get(
       'https://yushi.microcms.io/api/v1/works?limit=30',
@@ -41,36 +44,35 @@ export default {
     )
     return data
   },
-  transition: {
-    name: "animePic",
+  methods: {
+    btnclick(event) {
+      alert('Hello ' + this.name + '!')
+      if (event) {
+        alert(event.target.tagName)
+      }
+    }
   },
-  data: function () {
-    return {
-      show: true,
-    };
-  },
-}
+}.mount('.worksList');
 </script>
 
 
 <style lang="scss" scoped>
-.animePic-enter-active {
-  transition: opacity .5s;
-  opacity: 0;
+
+.imgActive{
+  width: 100%;
+  transition: .1s;
 }
 
-.animePic-enter-to {
-  opacity: 1;
-}
-
+.animePic-enter-active,
 .animePic-leave-active {
   transition: opacity .5s;
-  opacity: 1;
 }
 
+.animePic-enter,
 .animePic-leave-to {
   opacity: 0;
 }
+
 
 
 .lowMv {
@@ -100,7 +102,6 @@ export default {
     flex-wrap: wrap;
     gap: 60px 30px;
     margin: 0 auto;
-    position: relative;
 
     @include tab {
       gap: 40px 20px;

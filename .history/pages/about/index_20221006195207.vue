@@ -522,9 +522,10 @@ export default {
       font-size: 1.2rem;
       font-family: $f-roboto;
       font-weight: 500;
-      position: absolute;
+      position: relative;
       bottom: 0;
-      right: 0;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }

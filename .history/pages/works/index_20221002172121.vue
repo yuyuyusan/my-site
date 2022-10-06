@@ -10,9 +10,9 @@
 
     <section class="worksList">
       <div class="container">
-        <transition-group tag="ul" name="list" class="list">
+        <transition-group move-class tag="ul" name="animePic" class="list">
           <li class="listItem" v-for="content in contents" :key="content.id">
-            <figure class="listItem__pic" @click="show = !show">
+            <figure class="listItem__pic" @click="">
               <nuxt-link :to="`/works/${content.id}`">
                 <img :src="content.image.url">
               </nuxt-link>
@@ -30,7 +30,6 @@
 import axios from 'axios'
 
 export default {
-  layout: 'low',
   async asyncData() {
     const { data } = await axios.get(
       'https://yushi.microcms.io/api/v1/works?limit=30',
@@ -41,36 +40,27 @@ export default {
     )
     return data
   },
+  layout: 'low',
   transition: {
     name: "animePic",
-  },
-  data: function () {
-    return {
-      show: true,
-    };
   },
 }
 </script>
 
 
 <style lang="scss" scoped>
-.animePic-enter-active {
-  transition: opacity .5s;
-  opacity: 0;
-}
 
-.animePic-enter-to {
-  opacity: 1;
-}
-
+.animePic-enter-active,
 .animePic-leave-active {
-  transition: opacity .5s;
-  opacity: 1;
+  transition: all 0.3s ease;
+  position: absolute; 
 }
 
+.animePic-enter,
 .animePic-leave-to {
   opacity: 0;
 }
+
 
 
 .lowMv {

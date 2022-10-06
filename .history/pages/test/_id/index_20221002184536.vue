@@ -4,56 +4,64 @@
 
     <section class="lowMv">
       <h1>
-        <span class="en">WORKS</span>
+        <span class="en">test</span>
       </h1>
     </section>
 
-    <section class="worksList">
-      <div class="container">
-        <transition-group tag="ul" name="list" class="list">
-          <li class="listItem" v-for="content in contents" :key="content.id">
-            <figure class="listItem__pic" @click="show = !show">
-              <nuxt-link :to="`/works/${content.id}`">
-                <img :src="content.image.url">
-              </nuxt-link>
-            </figure>
-            <p class="date">{{ content.date }}</p>
-            <h3>{{ content.title }}</h3>
-          </li>
-        </transition-group>
-      </div>
-    </section>
+
   </main>
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
-  layout: 'low',
-  async asyncData() {
-    const { data } = await axios.get(
-      'https://yushi.microcms.io/api/v1/works?limit=30',
-      {
-        limit: 30,
-        headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' }
+  beforeRouteEnter(to, from, next) {
+    if (from.name === null) {
+      next(vm => {
+        vm.styleObj.opacity = 1;
+      });
+    }
+    else {
+      // 遷移時にアニメーションを実行
+      next(vm => vm.setImageData());
+    }
+  },
+  methods: {
+    setImageData() {
+      const node = this.$refs.img;
+      const wrapRect = this.$refs.detail.getBoundingClientRect();
+      const itemRect = node.getBoundingClientRect();
+
+      // 遷移後の画像の位置を取得
+      const styleObj = {
+        top: `${itemRect.top - wrapRect.top}px`,
+        left: `${itemRect.left - wrapRect.left}px`,
+        width: `${node.clientWidth}px`
       }
-    )
-    return data
-  },
-  transition: {
-    name: "animePic",
-  },
-  data: function () {
-    return {
-      show: true,
-    };
-  },
+
+      node.style.opacity = 0;
+
+      // ダミー画像に情報を渡す
+      this.$nuxt.$emit('layoutImageMove', {
+        styleObj: styleObj,
+        node: node
+      });
+
+      // ページの不透明度を1にする
+      anime({
+        targets: this.styleObj,
+        opacity: [0, 1],
+        easing: 'easeInOutQuart',
+        duration: 800
+      });
+    }
+  }
 }
+
 </script>
 
 
 <style lang="scss" scoped>
+/* enter-active -> enter-to の順番で書くのが大事*/
 .animePic-enter-active {
   transition: opacity .5s;
   opacity: 0;
@@ -63,6 +71,7 @@ export default {
   opacity: 1;
 }
 
+/* leave-active -> leave-to の順番で書くのが大事*/
 .animePic-leave-active {
   transition: opacity .5s;
   opacity: 1;

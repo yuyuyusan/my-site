@@ -39,22 +39,11 @@ export default {
 
 
 <style lang="scss" scoped>
-.animePic-enter-active {
-  transition: opacity .5s;
-  opacity: 0;
+.animePic-enter {
+  opacity: 1;
 }
-
 .animePic-enter-to {
   opacity: 1;
-}
-
-.animePic-leave-active {
-  transition: opacity .5s;
-  opacity: 1;
-}
-
-.animePic-leave-to {
-  opacity: 0;
 }
 
 

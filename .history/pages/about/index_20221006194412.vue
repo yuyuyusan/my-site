@@ -522,14 +522,11 @@ export default {
       font-size: 1.2rem;
       font-family: $f-roboto;
       font-weight: 500;
-      position: absolute;
-      bottom: 0;
-      right: 0;
     }
   }
 }
 
-.aboutSkill .container .content .contentItem .listItem {
+.aboutSkill .container .content .list .listItem {
   &__pic {
     width: 60px;
   }
@@ -562,7 +559,7 @@ export default {
   }
 }
 
-.aboutSkill .container .content .contentItem .bg {
+.aboutSkill .container .content .list .listItem .bg {
   width: min(100% - 40px, 560px);
   height: 60%;
   padding: 40px;
@@ -607,6 +604,7 @@ export default {
       line-height: 2;
       font-size: 1.4rem;
       overflow-y: scroll;
+
     }
   }
 }
