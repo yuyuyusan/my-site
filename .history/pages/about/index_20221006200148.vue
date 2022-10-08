@@ -459,6 +459,7 @@ export default {
   .notes {
     font-size: 1.2rem;
     text-align: right;
+    
   }
 }
 

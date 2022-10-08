@@ -456,13 +456,9 @@ export default {
   .wrap {
     position: relative;
   }
-  .notes {
-    font-size: 1.2rem;
-    text-align: right;
-  }
 }
 
-.aboutSkill .container .content .contentItem .wrap p {
+.aboutSkill .container .content .wrap p {
   width: min(100%, 600px);
   margin: 0 auto 60px;
   line-height: 2;
@@ -494,7 +490,7 @@ export default {
   }
 }
 
-.aboutSkill .container .content .contentItem .list {
+.aboutSkill .container .content .list {
   display: flex;
   gap: 40px;
   flex-wrap: wrap;

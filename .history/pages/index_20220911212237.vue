@@ -141,7 +141,7 @@ export default {
 .topMv {
   background: linear-gradient(to top, $navy 0%, $navy 60px, rgba($navy , .5) 60px, rgba($navy , .5) 100%);
   position: relative;
-  overflow-y: hidden;
+
   @include tab {
     background: linear-gradient(to top, $navy 0%, $navy 400px, rgba($navy , .5) 400px, rgba($navy , .5) 100%);
   }

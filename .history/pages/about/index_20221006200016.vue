@@ -80,7 +80,7 @@
                 <span class="skillActive">{{ skill.level }}/10</span>
               </li>
             </ul>
-            <p class="notes">※8がリファクタリングできるレベルと仮定</p>
+            <p class="notes">※8がリファクタリングできるレベルと家庭</p>
 
             <div class="listItem__desc" v-for="(skill, index) in skill" :key="index" v-show="modal === skill.num"
               @click="modal = skillClose">
@@ -452,17 +452,15 @@ export default {
   }
 }
 
-.aboutSkill .container .content .contentItem {
-  .wrap {
-    position: relative;
-  }
-  .notes {
-    font-size: 1.2rem;
-    text-align: right;
+.aboutSkill .container .content {
+  &Item {
+    .wrap {
+      position: relative;
+    }
   }
 }
 
-.aboutSkill .container .content .contentItem .wrap p {
+.aboutSkill .container .content .wrap p {
   width: min(100%, 600px);
   margin: 0 auto 60px;
   line-height: 2;
@@ -494,11 +492,10 @@ export default {
   }
 }
 
-.aboutSkill .container .content .contentItem .list {
+.aboutSkill .container .content .list {
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
-  margin-bottom: 40px;
 
   &Item {
     width: calc((100% - (40px * 2)) / 3);
