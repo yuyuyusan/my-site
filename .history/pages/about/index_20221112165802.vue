@@ -40,7 +40,7 @@
           </li>
         </ul>
         <div class="link">
-          <nuxt-link to="/works">実績一覧へ</nuxt-link>
+          <nuxt-link to="works">実績一覧へ</nuxt-link>
         </div>
       </div>
     </section>

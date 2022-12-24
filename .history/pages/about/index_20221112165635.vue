@@ -40,7 +40,7 @@
           </li>
         </ul>
         <div class="link">
-          <nuxt-link to="/works">実績一覧へ</nuxt-link>
+          <nuxt-link to="works">実績一覧へ</nuxt-link>
         </div>
       </div>
     </section>
@@ -166,14 +166,14 @@ export default {
           title: "CSS",
           level: "8",
           num: "2",
-          desc: "自分の形は、FLOCSS+自分流でdartscssを使用し、保守性、再利用性を意識しています。モダンなcssはcolissを毎週見ているので、取り入れています。そのほか、アニメーションの記述、再現もできます。svgに関しては、svg spriteを使用しています。"
+          desc: "自分の形は、FLOCSS+自分流でdartscssを使用し、保守性、再利用性を意識しています。モダンなcssはcolissを毎週見ているので、取り入れています。<br>そのほか、アニメーションの記述、再現もできます。svgに関しては、svg spriteを使用しています。"
         },
         {
           icon: "../icon-js.svg",
           title: "Vanilla js",
           level: "6",
           num: "3",
-          desc: 'JavaScriptの基本の形は抑えていますが、開発などフルスクラッチでの経験はありません。案件で使用する場面では、あえて新しい方法での、実装を心がけています。非同期通信なども、業務では使用しないのですが、JSONファイルとの連携などは実装可能です。cssと同じくモダンな技術を可能な限り取り入れています。(IntersectionObserverなど)現在webGL、beforeRouteLeave（ナビゲーションゲート）を次は学ぼうと考えています。'
+          desc: 'JavaScriptの基本の形は抑えていますが、開発などフルスクラッチでの経験はありません。<br>案件で使用する場面では、あえて新しい方法での、実装を心がけています。非同期通信なども、業務では使用しないのですが、JSONファイルとの連携などは実装可能です。cssと同じくモダンな技術を可能な限り取り入れています。(IntersectionObserverなど)<br>現在webGL、beforeRouteLeave（ナビゲーションゲート）を次は学ぼうと考えています。'
         },
         {
           icon: "../icon-php.svg",

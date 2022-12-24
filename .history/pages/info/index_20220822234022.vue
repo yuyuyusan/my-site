@@ -31,7 +31,7 @@ export default {
   layout: 'low',
   async asyncData() {
     const { data } = await axios.get(
-      'https://yushi.microcms.io/api/v1/info/?limit=50',
+      'https://yushi.microcms.io/api/v1/info/',
       {
         headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' }
       }
