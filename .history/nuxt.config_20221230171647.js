@@ -65,7 +65,7 @@ export default {
   styleResources: {
     scss: ['~/assets/scss/_variable.scss'],
   },
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+    // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/date-fns',
     ['@nuxtjs/google-fonts', {
@@ -77,39 +77,34 @@ export default {
       inject: true
     }]
   ],
-  // // ページング用
   // router: {
   //   extendRoutes(routes, resolve) {
   //     routes.push({
-  //       path: '/info/:p',
-  //       component: resolve(__dirname, 'pages/info/index.vue'),
+  //       path: '/page/works/:p',
+  //       component: resolve(__dirname, 'pages/works/index.vue'),
   //       name: 'page',
   //     })
   //   },
   // },
-  // // ページング用
   // generate: {
   //   async routes() {
-  //     const limit = 7
-  //     const range = (start, end) => [...Array(end - start + 1)].map((_, i) => start + i)
+  //     const limit = 30
+  //     const range = (start, end) =>
+  //       [...Array(end - start + 1)].map((_, i) => start + i)
 
   //     // 一覧のページング
   //     const pages = await axios
-  //       .get(`https://yushi.microcms.io/api/v1/info?limit=0`, {
-  //         headers: {
-  //           'X-MICROCMS-API-KEY': API_KEY
-  //         },
+  //       .get(`https://yushi.microcms.io/api/v1/works?limit=0`, {
+  //         headers: { 'X-MICROCMS-API-KEY': 'feb17f48f7204c99b8dd40af725e95d2311b' },
   //       })
   //       .then((res) =>
   //         range(1, Math.ceil(res.data.totalCount / limit)).map((p) => ({
-  //           route: `/info/${p}`,
-  //           payload: content
+  //           route: `/page/works/${p}`,
   //         }))
   //       )
   //     return pages
   //   },
   // },
-
   //いらないかも
   googleFonts: {
     googleFonts: {

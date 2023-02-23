@@ -71,8 +71,6 @@ export default {
       }
 
       .post {
-        line-height: 1.8;
-
         h2 {
           font-size: 2.4rem;
 
@@ -86,13 +84,6 @@ export default {
 
           @include tab {
             font-size: 1.4rem;
-          }
-          a {
-            color: $skyBlue;
-            border-bottom: 1px solid $skyBlue;
-            @include tab {
-              font-size: 1.4rem;
-            }
           }
         }
       }

@@ -89,10 +89,6 @@ export default {
           }
           a {
             color: $skyBlue;
-            border-bottom: 1px solid $skyBlue;
-            @include tab {
-              font-size: 1.4rem;
-            }
           }
         }
       }

@@ -64,36 +64,15 @@ export default {
         font-size: 3.2rem;
         text-align: center;
         margin-bottom: 40px;
-
-        @include tab {
-          font-size: 2rem;
-        }
       }
 
       .post {
-        line-height: 1.8;
-
         h2 {
           font-size: 2.4rem;
-
-          @include tab {
-            font-size: 1.8rem;
-          }
         }
-
+        
         p {
-          line-height: 1.8;
-
-          @include tab {
-            font-size: 1.4rem;
-          }
-          a {
-            color: $skyBlue;
-            border-bottom: 1px solid $skyBlue;
-            @include tab {
-              font-size: 1.4rem;
-            }
-          }
+          line-height: 1.7;
         }
       }
     }
