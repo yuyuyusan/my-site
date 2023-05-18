@@ -13,20 +13,8 @@ microCMS
 firebase
 
 
-## 今後の予定
-・webgl three.jsでtopmv
-
-・v-ifでno-image
-
-・svgspriteの紐付け
-
-・入門編のtodo、電卓作成
-
-・簡単なサービスの開発
-
-・コンテンツが充実してきたら検索機能の導入
-
-・sendgridでお問い合わせフォーム(苦戦中)
+## 今後
+firebaseが無料プランを超過してしまい、ホスティング出来ず、更新が止まっています。
 
 
 
