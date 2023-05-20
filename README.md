@@ -1,20 +1,52 @@
-# portfolio
+# Name
+
+My-site
 
 ## URL
 https://ys-portfolio-c98fe.web.app/
 
-## 新しく取り入れた技術
-Vue.js
 
-Nuxt.js
+# Detail
 
-microCMS
+ヘッドレスCMS
 
-firebase
+infoとworksは随時更新中。
 
+# Stack
 
-## 今後
-firebaseが無料プランを超過してしまい、ホスティング出来ず、更新が止まっています。
+* Vue.js
+* Nuxt
+* firebase
+* microCMS
 
+# Directory
 
+<pre>
+.
+├── assets
+│   ├── fonts
+│   └── scss
+├── components
+├── layouts
+├── pages
+│   ├── about
+│   ├── contact
+│   ├── info
+│   │   └── _slug
+│   └── works
+│       └── _slug
+└── static
+</pre>
 
+# Requirement
+
+* huga 3.5.2
+* hogehuga 1.0.2
+
+# Note
+
+firebase無料期間が過ぎたのと、全てSSGのためinfo,worksが更新されない場合があります。
+
+# Future plan
+
+Next.jsで新しく作成する予定です。
