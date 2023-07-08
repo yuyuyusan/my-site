@@ -11,7 +11,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Web制作会社に務め、コーダーorマークアップエンジニア。近い目標でフロントエンドエンジニアを目指し日々奮闘中。'
+        content: '日々奮闘中。'
       },
       {
         hid: 'robots',
@@ -30,7 +30,7 @@ export default {
     link: [{
       rel: 'icon',
       type: 'image/x-icon',
-      href: '/yu.jpg',
+      href: '/favicon.png',
     }],
     script: [{
       src: 'common.js',
